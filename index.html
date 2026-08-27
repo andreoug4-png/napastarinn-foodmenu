@@ -43,7 +43,7 @@ h2 {
 button {
     padding: 15px;
     font-size: 17px;
-    font-family: "Bookman Old Style", serif;
+    font-family: "Bebas neue",;
     font-weight: bold;
     border: none;
     border-radius: 10px;
@@ -165,7 +165,7 @@ button:hover {
 
 <div id="result"></div>
 
-<button class="back" onclick="goBackToCategories()">← Start Again</button>
+<button class="back" onclick="goBackToFoodMenu()">← Back</button>
 
 </div>
 
@@ -523,13 +523,20 @@ description: "Chocolate, vanilla, strawberry and chocolate."
 // SELECT CATEGORY
 // =========================
 
+let currentCategory = "";
+
 function selectCategory(category) {
+
+    currentCategory = category;
 
     document.getElementById("categoryMenu")
         .classList.add("hidden");
 
     document.getElementById("foodMenu")
         .classList.remove("hidden");
+
+    document.getElementById("resultMenu")
+        .classList.add("hidden");
 
     document.getElementById("selectedCategory")
         .textContent = category;
@@ -590,9 +597,12 @@ function selectFood(food) {
         <div class="dish-description">
             ${food.description}
         </div>
+
+        ${food.image ? `
         <img class="dish-image"
-            src="${food.image}"
-        >
+            src="${food.image}">
+        ` : ""}
+
     `;
 }
 
@@ -601,6 +611,15 @@ function selectFood(food) {
 // BACK TO CATEGORIES
 // =========================
 
+function goBackToFoodMenu() {
+
+    document.getElementById("resultMenu")
+        .classList.add("hidden");
+
+    document.getElementById("foodMenu")
+        .classList.remove("hidden");
+
+}
 function goBackToCategories() {
 
     document.getElementById("foodMenu")
@@ -611,6 +630,17 @@ function goBackToCategories() {
 
     document.getElementById("categoryMenu")
         .classList.remove("hidden");
+
+}
+
+function goBackToFoodMenu() {
+
+    document.getElementById("resultMenu")
+        .classList.add("hidden");
+
+    document.getElementById("foodMenu")
+        .classList.remove("hidden");
+
 }
 
 </script>
