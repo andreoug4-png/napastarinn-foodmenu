@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Napa Star Inn Food and Drinks Menu</title>
+
+<style>
+
+body {
+    font-family: "Bookman Old Style", sans-serif;
+    background: #5C4033;
+    margin: 0;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: #A07858;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 25px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px;
+    font-size: 17px;
+    font-family: "Bookman Old Style", serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background: #5C4033;
+    color: #E8E8E8;
+    cursor: pointer;
+}
+
+button:hover {
+    background: white;
+}
+
+.back {
+    background: #777;
+    margin-top: 20px;
+}
+
+.back:hover {
+    background: #555;
+}
+
+.hidden {
+    display: none;
+}
+
+#result {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* DISH NAME */
+
+.dish-name {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* DISH DESCRIPTION */
+
+.dish-description {
+    font-size: 17px;
+    font-weight: normal;
+    font-family: Georgia;
+    line-height: 1.6;
+    color: black;
+}
+
+/* DISH IMAGE */
+.dish-image {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+
+<!-- FOOD CATEGORY MENU -->
+
+<div id="categoryMenu">
+
+<h1>
+    <img src="https://i.ibb.co/MDTvBjw5/Napastar-logo.png" alt="Napastar logo" width="300">
+</h1>
+
+
+
+
+<div class="menu">
+
+<button onclick="selectCategory('Starter')">Starter</button>
+<button onclick="selectCategory('Platters')">Platters</button>
+<button onclick="selectCategory('Salads')">Salads</button>
+<button onclick="selectCategory('Sandwiches')">Sandwiches</button>
+<button onclick="selectCategory('Burgers')">Burgers</button>
+<button onclick="selectCategory('Pizza')">Pizza</button>
+<button onclick="selectCategory('Main Dishes')">Main Dishes</button>
+<button onclick="selectCategory('Pasta')">Pasta</button>
+<button onclick="selectCategory('Kids Corner')">Kids Corner</button>
+<button onclick="selectCategory('Breakfast')">Breakfast until 16:00</button>
+<button onclick="selectCategory('Omelet')">Omelet</button>
+<button onclick="selectCategory('Deserts')">Desserts</button>
+
+</div>
+
+</div>
+
+
+<!-- FOOD MENU -->
+
+<div id="foodMenu" class="hidden">
+
+<h1 id="selectedCategory"></h1>
+
+<h2>Choose a dish</h2>
+
+<div id="foodButtons" class="menu"></div>
+
+<button class="back" onclick="goBackToCategories()">← Back</button>
+
+</div>
+
+
+<!-- FOOD RESULT -->
+
+<div id="resultMenu" class="hidden">
+
+<div id="result"></div>
+
+<button class="back" onclick="goBackToCategories()">← Start Again</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+
+// =========================
+// FOOD DATA
+// =========================
+
+const foodMenu = {
+
+
+"Starter": [
+
+{
+name: "Smoked BBQ Buffalo Wings — €7.00",
+description: "Smoked chicken wings with BBQ sauce."
+},
+
+{
+name: "Mozzarella Fingers — €7.00",
+description: "Breaded mozzarella fingers served with taco salsa dip sauce."
+},
+
+{
+name: "Spring Rolls — €7.00",
+description: "Crispy vegetable rolls served with sweet and sour sauce."
+},
+
+{
+name: "Buttered Onion Rings — €7.00",
+description: "Crispy onion rings served with honey mustard sauce."
+},
+
+{
+name: "Garlic Bread — €4.00",
+description: "Sliced French baguette topped with garlic butter, parsley and oregano."
+},
+
+{
+name: "Garlic Bread with Cheese — €4.50",
+description: "Sliced French baguette with garlic butter, parsley and oregano, topped with mozzarella cheese."
+},
+
+{
+name: "Grilled Halloumi Tzatziki — €10.00",
+description: "Grilled halloumi cheese served with tzatziki and pita bread."
+},
+
+{
+  name:"Chips / French Fries — €4.50"
+}
+
+],
+
+
+"Platters": [
+
+{
+name: "Combo Platter — €20.00",
+description: "Chicken wings, spring rolls, chicken nuggets, mozzarella fingers and French fries. Served with pita bread and dips."
+},
+
+{
+name: "Mexican Nachos Platter — €14.00",
+description: "Mexican nachos with melted cheese, served with sour cream, salsa and guacamole."
+}
+
+],
+
+
+"Salads": [
+
+{
+name: "Greek Salad— €10.00",
+description: "Tomato, cucumber, green pepper, onion, olives and feta cheese."
+},
+
+{
+name: "Caesar Chicken Salad— €14.00",
+description: "Grilled chicken, crispy bacon, croutons and cherry tomatoes, served with Caesar dressing."
+},
+
+{
+name: "Quinoa Chicken Avocado Salad — €16.00",
+description: "Quinoa, chicken, avocado, sweet corn, cucumber, onion, pepper and dressing."
+},
+
+{
+name: "Orange Steak Salad — €17.00",
+description: "Fresh seasonal salad with sun-dried tomatoes, orange, walnuts, tomato cherry, roculla, honey mustard dressing and grilled beef strips."
+}
+
+],
+
+
+"Sandwiches": [
+
+{
+name: "Clubhouse Sandwich— €13.00",
+description: "Triple toast with chicken, egg, cheese, bacon, lettuce, tomato and mayonnaise. Served with French fries."
+},
+
+{
+name: "Chicken Wrap — €12.00",
+description: "Marinated chicken strips wrapped in a Mexican tortilla with Edam cheese and lettuce. Served with French fries and coleslaw salad."
+},
+
+{
+name: "Halloumi Cheese and Lountza Sandwich — €12.00",
+description: "Cyprus pita sandwich with halloumi cheese and lountza. Served with French fries"
+},
+
+{
+name: "Pork Baguette — €15.00",
+description: "Pork schnitzel with cream cheese, caramelized onions, tomato, lettuce and French fries. Served with coleslaw salad."
+}
+
+],
+
+
+"Burgers": [
+
+{
+name: "House Burger (Beef and Pork) — €14.00",
+description: "Our homemade juicy burger with tomato and lettuce."
+},
+
+{
+name: "Cheeseburger (Beef and Pork) — €15.00",
+description: "Homemade juicy burger with cheddar cheese, tomato and lettuce."
+},
+
+{
+name: "Napastar's Real Burger (Beef and Pork) — €16.00",
+description: "Our special homemade burger with smoked bacon, cheddar cheese, tomato, caramelized onions, lettuce and our special sauce."
+},
+
+{
+name: "Black Angus Burger — €18.00",
+description: "Black Angus beef burger with smoked bacon, pickles, tomato, lettuce and Jack Daniel's sauce."
+},
+
+{
+name: "Fried Chicken Burger — €14.00",
+description: "Fried chicken burger with tomato and lettuce."
+},
+
+{
+name: "Veggie Burger — €13.00",
+description: "Vegetarian burger with lettuce and tomato."
+}
+
+],
+
+
+"Pizza": [
+
+{
+name: "Margarita Pizza — €10.00",
+description: "Pizza with tomato sauce, mozzarella cheese and oregano."
+},
+
+{
+name: "Pepperoni Pizza — €11.00",
+description: "Pizza with tomato sauce, mozzarella cheese and pepperoni."
+},
+
+{
+name: "Special Pizza — €12.00",
+description: "Pizza with tomato sauce, smoked bacon, ham, mushrooms, bell peppers, tomato and mozzarella cheese, topped with oregano."
+},
+
+{
+name: "Hawaiian Pizza — €11.00",
+description: "Pizza with tomato sauce, mozzarella cheese, ham and pineapple."
+}
+
+],
+
+
+"Main Dishes": [
+
+{
+name: "Grilled Pork Chop Jumbo — €18.00",
+description: "Fresh juicy pork chop seasoned with herbs and served with French fries and tzatziki."
+},
+
+{
+name: "Angus Sirloin Steak — €26.00",
+description: "Grilled sirloin steak served with French fries, rice and oven-baked vegetables. Choice of sauce."
+},
+
+{
+name: "Chicken A La Creme — €18.00",
+description: "Chicken fillet with cream, bacon, onion, mushrooms, green pepper and fresh basil. Served with rice and oven-baked vegetables"
+},
+
+{
+name: "Fresh BBQ Spare Ribs — €18.00",
+description: "Juicy baby back pork ribs coated with BBQ sauce. Served with French fries and BBQ sauce."
+},
+
+{
+name: "Pork Schnitzel — €16.00",
+description: "Pork schnitzel with chips and honey mustard sauce."
+},
+
+{
+name: "Chicken Fillet — €16.00",
+description: "Fresh chicken fillet marinated with herbs, grilled and served with French fries and tzatziki."
+},
+
+{
+name: "Grilled Swordfish — €18.00",
+description: "Grilled swordfish served with chips, green salad and lemon dressing"
+},
+
+{
+name: "Fish & Chips — €18.00",
+description: "Served with crispy chips and tartar sauce."
+}
+
+],
+
+
+"Pasta": [
+
+{
+name: "Spaghetti Bolognese — €14.00",
+description: "Spaghetti with pork and minced meat, tomato sauce, chopped parsley and Parmesan cheese."
+},
+
+{
+name: "Italian Napolitan — €12.00",
+description: "Spaghetti pasta with Italian tomato sauce and chopped basil."
+},
+
+{
+name: "Carbonara — €14.00",
+description: "Spaghetti carbonara with bacon, mushrooms, onion and garlic, served with Parmesan cheese."
+},
+
+{
+name: "Seafood — €18.00",
+description: "Spaghetti with mixed seafood, cream, onion and garlic."
+}
+
+],
+
+
+"Kids Corner": [
+
+{
+name: "Spaghetti Bolognese — €9.00",
+description: "Spaghetti pasta with pork and minced meat, tomato sauce, chopped parsley and Parmesan cheese."
+},
+
+{
+name: "Chicken Nuggets — €9.00",
+description: "Chicken nuggets served with French fries"
+},
+
+{
+name: "Fish Fingers — €9.00",
+description: "Fish fingers served with French fries."
+}
+
+],
+
+
+"Breakfast": [
+
+{
+name: "Napastar Breakfast — €10.00",
+description: "Eggs, bacon, ham, sausage, baked beans, toast, mushrooms and tomato."
+},
+
+{
+name: "Napa Healthy Breakfast — €9.00",
+description: "Protein bread with homemade avocado spread, turkey, banana, tomato, cucumber and pomegranate."
+},
+
+{
+name: "Avocado Fried Eggs Toast— €9.00",
+description: "Fried eggs served on two slices of black bread with avocado, radishes, onions, peppers and tomatoes.",
+image: "https://i.ibb.co/hFhSSB3B/att-m-MH7-Qm-z1vt-ucuq-NPINv2-X6t-Sy-Ce12-Af-UEeyo-Xz-NKQ.jpg"
+},
+
+{
+name: "Ham and Cheese Toast — €8.00",
+description: "Ham and cheese toast served with chips."
+}
+
+],
+
+
+"Omelet": [
+
+{
+name: "Plain Omelet — €7.00",
+description: "Three eggs plain omelet with cucumber and tomato."
+},
+
+{
+name: "Healthy Omelet — €10.00",
+description: "Three eggs omelet stuffed with turkey, cheese, avocado, egg white, honey and brown bread with homemade peanut butter."
+},
+
+{
+name: "Special Omelet — €10.00",
+description: "Three eggs omelet with ham, bacon, mushrooms, cheese and chips."
+}
+
+],
+
+
+"Desserts": [
+
+{
+name: "Lava Cake — €8.00",
+description: "Served with chocolate topping and vanilla ice cream."
+},
+
+{
+name: "Orange Pie — €8.00",
+description: "Served with vanilla ice cream."
+},
+
+{
+name: "Apple Pie — €8.00",
+description: "Served with whipped cream, cinnamon and vanilla ice cream."
+},
+
+{
+name: "Baklavas — €8.00",
+description: "Served with vanilla ice cream."
+},
+
+{
+name: "Selection of Ice Cream— €3.00 per scoop",
+description: "Chocolate, vanilla, strawberry and chocolate."
+}
+
+]
+
+};
+
+
+// =========================
+// SELECT CATEGORY
+// =========================
+
+function selectCategory(category) {
+
+    document.getElementById("categoryMenu")
+        .classList.add("hidden");
+
+    document.getElementById("foodMenu")
+        .classList.remove("hidden");
+
+    document.getElementById("selectedCategory")
+        .textContent = category;
+
+    createFoodButtons(category);
+}
+
+
+// =========================
+// CREATE FOOD BUTTONS
+// =========================
+
+function createFoodButtons(category) {
+
+    const container =
+        document.getElementById("foodButtons");
+
+    container.innerHTML = "";
+
+    foodMenu[category].forEach(food => {
+
+        const button =
+            document.createElement("button");
+
+        button.textContent = food.name;
+
+        button.onclick = function() {
+
+            selectFood(food);
+
+        };
+
+        container.appendChild(button);
+
+    });
+}
+
+
+// =========================
+// SELECT FOOD
+// =========================
+
+function selectFood(food) {
+
+    document.getElementById("foodMenu")
+        .classList.add("hidden");
+
+    document.getElementById("resultMenu")
+        .classList.remove("hidden");
+
+    document.getElementById("result")
+        .innerHTML = `
+
+        <div class="dish-name">
+            ${food.name}
+        </div>
+
+        <div class="dish-description">
+            ${food.description}
+        </div>
+        <img class="dish-image"
+            src="${food.image}"
+        >
+    `;
+}
+
+
+// =========================
+// BACK TO CATEGORIES
+// =========================
+
+function goBackToCategories() {
+
+    document.getElementById("foodMenu")
+        .classList.add("hidden");
+
+    document.getElementById("resultMenu")
+        .classList.add("hidden");
+
+    document.getElementById("categoryMenu")
+        .classList.remove("hidden");
+}
+
+</script>
+
+</body>
+</html>
