@@ -77,7 +77,7 @@ margin: 5px 0 20px;
 
 /* =========================
 ITEM LAYOUT
-Food uses one column; drinks use two columns.
+Food and drinks both use one column.
 ========================= */
 
 .food-grid {
@@ -90,23 +90,18 @@ margin-top: 25px; /* Leaves space above the cards. */
 grid-template-columns: 1fr; /* Food items appear one underneath another. */
 }
 
-.drinks-two-columns {
-grid-template-columns: 1fr 1fr; /* Drink items remain in two equal columns. */
+.drinks-one-column {
+grid-template-columns: 1fr; /* Drink items appear one underneath another. */
 }
 
 .food-item {
     background-color: #5C4033; /* Dark background of each food or drink card. */
-    padding: 15px; /* Space inside each card. */
+    padding: 12px; /* Space inside each card. */
     border-radius: 10px; /* Rounded card corners. */
-    margin: 15px; /* Space around each card. */
+    margin: 0; /* The grid gap supplies spacing without causing mobile overflow. */
     color: #E8E8E8; /* Light writing inside each card. */
-}
-
-
-/* EACH FOOD ITEM */
-
-.food-item {
-padding: 10px;
+    min-width: 0; /* Allows the card to fit safely inside the grid. */
+    box-sizing: border-box; /* Includes padding inside the card width. */
 }
 
 
@@ -153,8 +148,8 @@ gap: 12px;
 grid-template-columns: 1fr; /* Food stays one column on mobile phones. */
 }
 
-.drinks-two-columns {
-grid-template-columns: 1fr 1fr; /* Drinks stay two columns on mobile phones. */
+.drinks-one-column {
+grid-template-columns: 1fr; /* Drinks stay one column on mobile phones. */
 }
 
 .food-name {
@@ -627,10 +622,10 @@ document.getElementById("foodButtons"); // ...the box that will receive all item
 
 container.innerHTML = ""; // Removes cards from the previously visited category.
 
-// Changes the layout automatically: Food = one column, Drinks = two columns.
+// Food and Drinks both use one column.
 container.className = currentMenuType === "food"
 ? "food-grid food-one-column"
-: "food-grid drinks-two-columns";
+: "food-grid drinks-one-column";
 
 const selectedItems = currentMenuType === "food" // Starts choosing the correct list of products.
 ? foodMenu[category] // Uses a food category if Food is active.
