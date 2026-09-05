@@ -1,686 +1,2652 @@
-<!DOCTYPE html> <!-- Tells the browser that this file uses modern HTML5. -->
-<html lang="en"> <!-- Starts the webpage; lang="en" says its language is English. -->
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8"> <!-- Allows symbols such as the euro sign to display correctly. -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the page fit phones and tablets. -->
 
-<title>Napa Star Inn Food and Drinks Menu</title> <!-- Text displayed on the browser tab. -->
+<meta charset="UTF-8">
 
-<style> /* Everything inside this section controls the appearance of the page. */
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Napa Star Inn Food and Drinks Menu</title>
+
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+/* =========================
+WHOLE PAGE
+========================= */
 
 body {
-font-family: "Bookman Old Style", sans-serif; /* Main writing style; sans-serif is the backup font. */
-background: #5C4033; /* Brown background behind the menu. */
-margin: 0; /* Removes the browser's automatic outside spacing. */
-padding: 30px 20px; /* Adds 30px top/bottom and 20px left/right space. */
-text-align: center; /* Centres text and buttons. */
-}
 
-.container {
-max-width: 500px; /* Stops the menu becoming wider than 500 pixels. */
-margin: auto; /* Places the menu box in the horizontal centre. */
-background: #A07858; /* Lighter brown used inside the menu box. */
-padding: 30px; /* Creates space between content and the box edges. */
-border-radius: 15px; /* Rounds the corners of the menu box. */
-box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* Adds a soft shadow below the box. */
-}
+    font-family: "Roboto Slab", Georgia, serif;
 
-h1 {
-margin-bottom: 10px; /* Leaves a small gap underneath headings and the logo. */
-}
+    background: #5C4033;
 
-.menu {
-display: flex; /* Activates the flexible layout system. */
-flex-direction: column; /* Places the category buttons vertically. */
-gap: 12px; /* Leaves 12 pixels between buttons. */
-margin-top: 20px; /* Leaves space above a group of buttons. */
-}
+    margin: 0;
 
-button {
-padding: 15px; /* Makes buttons taller and easier to tap. */
-font-size: 20px; /* Sets button text size. */
-font-family: "Bookman Old Style", serif; /* Sets button font and its backup. */
-font-weight: bold; /* Makes button text bold. */
-border: none; /* Removes the standard browser border. */
-border-radius: 10px; /* Rounds button corners. */
-background: #5C4033; /* Gives buttons a dark-brown background. */
-color: #E8E8E8; /* Gives buttons light text. */
-cursor: pointer; /* Shows a hand cursor when a computer mouse is over a button. */
-}
+    padding: 30px 20px;
 
-button:hover {
-background: white; /* Changes the button background when the mouse is over it. */
-color: #5C4033; /* Changes its text to brown so it remains readable. */
-}
+    text-align: center;
 
-.back {
-background: #777; /* Gives Back buttons a grey colour. */
-margin-top: 25px; /* Leaves space above a Back button. */
-}
-
-.back:hover {
-background: #555;
-}
-
-.hidden {
-display: none; /* Completely hides a page section until JavaScript shows it. */
-}
-
-.category-note {
-font-family: Georgia, serif;
-font-size: 16px;
-font-style: italic;
-color: black;
-margin: 5px 0 20px;
 }
 
 
 /* =========================
-ITEM LAYOUT
-Food and drinks both use one column.
+MAIN CONTAINER
+========================= */
+
+.container {
+
+    max-width: 500px;
+
+    margin: auto;
+
+    background: #A07858;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 18px rgba(0,0,0,0.25);
+
+}
+
+
+/* =========================
+LOGO
+========================= */
+
+.logo {
+
+    width: 300px;
+
+    max-width: 100%;
+
+    display: block;
+
+    margin: auto;
+
+}
+
+
+/* =========================
+HEADINGS
+========================= */
+
+h1 {
+
+    font-family: "Roboto Condensed", sans-serif;
+
+    font-weight: 700;
+
+    margin-top: 0;
+
+    margin-bottom: 10px;
+
+    letter-spacing: 0.8px;
+
+}
+
+
+h2 {
+
+    font-family: "Roboto Condensed", sans-serif;
+
+    font-weight: 700;
+
+    color: #2F2018;
+
+    letter-spacing: 0.8px;
+
+    font-size: 25px;
+
+}
+
+
+/* =========================
+MENU BUTTON LAYOUT
+========================= */
+
+.menu {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================
+BUTTONS
+========================= */
+
+button {
+
+    padding: 15px;
+
+    font-size: 20px;
+
+    font-family: "Roboto Condensed", sans-serif;
+
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #5C4033;
+
+    color: #F2F2F2;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+button:hover {
+
+    background: #F2C14E;
+
+    color: #2C1B14;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+
+}
+
+
+/* =========================
+BACK BUTTON
+========================= */
+
+.back {
+
+    background: #3B302B;
+
+    color: white;
+
+    margin-top: 25px;
+
+}
+
+
+.back:hover {
+
+    background: #F2C14E;
+
+    color: #2C1B14;
+
+}
+
+
+/* =========================
+HIDDEN SECTIONS
+========================= */
+
+.hidden {
+
+    display: none;
+
+}
+
+
+/* =========================
+CATEGORY NOTE
+========================= */
+
+.category-note {
+
+    font-family: "Roboto Slab", serif;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    color: #2C1B14;
+
+    margin: 5px 0 20px;
+
+}
+
+
+/* =========================
+ITEM GRID
 ========================= */
 
 .food-grid {
-display: grid; /* Uses a grid for menu-item cards. */
-gap: 18px; /* Leaves space between cards. */
-margin-top: 25px; /* Leaves space above the cards. */
+
+    display: grid;
+
+    gap: 18px;
+
+    margin-top: 25px;
+
 }
+
 
 .food-one-column {
-grid-template-columns: 1fr; /* Food items appear one underneath another. */
+
+    grid-template-columns: 1fr;
+
 }
+
 
 .drinks-one-column {
-grid-template-columns: 1fr; /* Drink items appear one underneath another. */
+
+    grid-template-columns: 1fr;
+
 }
+
+
+/* =========================
+ITEM CARD
+========================= */
 
 .food-item {
-    background-color: #5C4033; /* Dark background of each food or drink card. */
-    padding: 12px; /* Space inside each card. */
-    border-radius: 10px; /* Rounded card corners. */
-    margin: 0; /* The grid gap supplies spacing without causing mobile overflow. */
-    color: #E8E8E8; /* Light writing inside each card. */
-    min-width: 0; /* Allows the card to fit safely inside the grid. */
-    box-sizing: border-box; /* Includes padding inside the card width. */
+
+    background-color: #5C4033;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    color: #F2F2F2;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.16);
+
 }
 
 
-/* FOOD NAME */
+/* =========================
+FOOD / DRINK NAME
+========================= */
 
 .food-name {
-font-family: "Georgia", serif;
-font-size: 20px;
-font-weight: bold;
-margin-bottom: 8px;
+
+    font-family: "Roboto Condensed", sans-serif;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.35px;
+
+    margin-bottom: 8px;
+
+    color: #F2C14E;
+
 }
 
 
-/* FOOD DESCRIPTION */
+/* =========================
+DESCRIPTION
+========================= */
 
 .food-description {
-font-family: Georgia, serif;
-font-size: 15px;
-font-weight: normal;
-line-height: 1.5;
+
+    font-family: "Roboto Slab", Georgia, serif;
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    line-height: 1.55;
+
+    color: #F2F2F2;
+
 }
 
-/* OPTIONAL FOOD IMAGE */
+
+/* =========================
+FOOD IMAGE
+========================= */
 
 .food-image {
-width: 100%; /* Makes the image use the width of its food card. */
-max-height: 260px; /* Prevents very tall images from taking over the page. */
-object-fit: cover; /* Crops the image neatly without stretching it. */
-border-radius: 8px; /* Rounds the image corners. */
-margin-bottom: 12px; /* Leaves space between the image and food name. */
-display: block;
+
+    width: 100%;
+
+    max-height: 260px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    margin-bottom: 12px;
+
+    display: block;
+
 }
 
 
-/* MOBILE */
+/* =========================
+MOBILE
+========================= */
 
 @media (max-width: 400px) {
 
-.food-grid {
-gap: 12px;
-}
+    body {
 
-.food-one-column {
-grid-template-columns: 1fr; /* Food stays one column on mobile phones. */
-}
+        padding: 20px 12px;
 
-.drinks-one-column {
-grid-template-columns: 1fr; /* Drinks stay one column on mobile phones. */
-}
+    }
 
-.food-name {
-font-size: 16px;
-}
 
-.food-description {
-font-size: 13px;
-}
+    .container {
+
+        padding: 20px;
+
+    }
+
+
+    h2 {
+
+        font-size: 21px;
+
+    }
+
+
+    button {
+
+        font-size: 18px;
+
+    }
+
+
+    .food-name {
+
+        font-size: 18px;
+
+    }
+
+
+    .food-description {
+
+        font-size: 13px;
+
+    }
+
+
+    .food-grid {
+
+        gap: 12px;
+
+    }
+
 }
 
 </style>
+
 </head>
 
-<body> <!-- Starts everything that visitors can see on the webpage. -->
 
-<div class="container"> <!-- The main rounded box containing every menu screen. -->
-
-<!-- MAIN MENU: visitors choose Food or Drinks first -->
-<div id="mainMenu"> <!-- First screen shown when the webpage opens. -->
-<h1><img src="https://i.ibb.co/MDTvBjw5/Napastar-logo.png" alt="Napastar logo" width="300"></h1> <!-- Loads the logo; alt is fallback text and width controls its size. -->
-<div class="menu"> <!-- Groups the two main buttons. -->
-<button onclick="showCategories('food')">Food</button> <!-- Calls showCategories and asks it to display food. -->
-<button onclick="showCategories('drinks')">Drinks</button> <!-- Calls the same function but asks it to display drinks. -->
-</div>
-</div>
+<body>
 
 
-<!-- CATEGORY MENU -->
-
-<!-- FOOD CATEGORY MENU -->
-
-<div id="categoryMenu" class="hidden"> <!-- Second screen; hidden when the page first opens. -->
-
-<h1>
-    <img src="https://i.ibb.co/MDTvBjw5/Napastar-logo.png" alt="Napastar logo" width="300">
-</h1>
+<div class="container">
 
 
-<div id="originalFoodButtons" class="menu"> <!-- Contains all food-category buttons. -->
+<!-- =========================
+LANGUAGE
+========================= -->
 
-<button onclick="selectCategory('Starter')">Starter</button>
-<button onclick="selectCategory('Platters')">Platters</button>
-<button onclick="selectCategory('Salads')">Salads</button>
-<button onclick="selectCategory('Sandwiches')">Sandwiches</button>
-<button onclick="selectCategory('Burgers')">Burgers</button>
-<button onclick="selectCategory('Pizza')">Pizza</button>
-<button onclick="selectCategory('Main Dishes')">Main Dishes</button>
-<button onclick="selectCategory('Pasta')">Pasta</button>
-<button onclick="selectCategory('Kids Corner')">Kids Corner</button>
-<button onclick="selectCategory('Breakfast')">Breakfast untill 16:00</button>
-<button onclick="selectCategory('Omelet')">Omelet</button>
-<button onclick="selectCategory('Desserts')">Desserts</button>
+<div id="languageMenu">
 
-</div>
+    <h1>
 
-<div id="drinkCategoryButtons" class="menu hidden"></div> <!-- JavaScript creates the drink-category buttons inside this empty box. -->
+        <img
+        src="https://i.ibb.co/MDTvBjw5/Napastar-logo.png"
+        alt="Napa Star Inn Logo"
+        class="logo">
 
-<button class="back" onclick="goBackFromCategories()">&#8592; Back</button> <!-- Returns one level: subcategories, drink categories, or the Food/Drinks choice. -->
+    </h1>
+
+
+
+
+
+    <div class="menu">
+
+        <button onclick="chooseLanguage('en')">
+            English
+        </button>
+
+        <button onclick="chooseLanguage('gr')">
+            Ελληνικά
+        </button>
+
+    </div>
 
 </div>
 
 
-<!-- FOOD CATEGORY -->
 
-<div id="foodMenu" class="hidden"> <!-- Third screen; shows items belonging to the selected category. -->
+<!-- =========================
+FOOD / DRINKS
+========================= -->
 
-<h1 id="selectedCategory"></h1> <!-- JavaScript inserts the selected category name here. -->
-<p id="categoryNote" class="category-note"></p>
+<div id="mainMenu" class="hidden">
 
-<div id="foodButtons" class="food-grid"></div> <!-- JavaScript inserts all matching food or drink cards here. -->
+    <h1>
 
-<button class="back" onclick="goBackToCategories()">
-← Back
-</button>
+        <img
+        src="https://i.ibb.co/MDTvBjw5/Napastar-logo.png"
+        alt="Napa Star Inn Logo"
+        class="logo">
+
+    </h1>
+
+
+    <div class="menu">
+
+        <button
+        id="foodMainButton"
+        onclick="showCategories('food')">
+
+            Food
+
+        </button>
+
+
+        <button
+        id="drinksMainButton"
+        onclick="showCategories('drinks')">
+
+            Drinks
+
+        </button>
+
+    </div>
+
+
+    <button
+    id="languageBackButton"
+    class="back"
+    onclick="goBackToLanguage()">
+
+        ← Language
+
+    </button>
 
 </div>
 
+
+
+<!-- =========================
+CATEGORY MENU
+========================= -->
+
+<div id="categoryMenu" class="hidden">
+
+    <h1>
+
+        <img
+        src="https://i.ibb.co/MDTvBjw5/Napastar-logo.png"
+        alt="Napa Star Inn Logo"
+        class="logo">
+
+    </h1>
+
+
+    <div
+    id="originalFoodButtons"
+    class="menu">
+    </div>
+
+
+    <div
+    id="drinkCategoryButtons"
+    class="menu hidden">
+    </div>
+
+
+    <button
+    id="categoryBackButton"
+    class="back"
+    onclick="goBackFromCategories()">
+
+        ← Back
+
+    </button>
+
 </div>
 
 
-<script> // Everything in this section controls menu behaviour and stores menu information.
+
+<!-- =========================
+FOOD / DRINK ITEMS
+========================= -->
+
+<div id="foodMenu" class="hidden">
+
+    <h1 id="selectedCategory"></h1>
 
 
-// =========================
-// FOOD DATA
-// =========================
+    <p
+    id="categoryNote"
+    class="category-note">
+    </p>
+
+
+    <div
+    id="foodButtons"
+    class="food-grid">
+    </div>
+
+
+    <button
+    id="itemBackButton"
+    class="back"
+    onclick="goBackToCategories()">
+
+        ← Back
+
+    </button>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+// =====================================================
+// GENERAL SETTINGS
+// =====================================================
+
+let currentLanguage = "en";
+
+let currentMenuType = "food";
+
+let currentDrinkCategory = null;
+
+
+
+// =====================================================
+// ENGLISH FOOD MENU
+// =====================================================
 
 const foodMenu = {
 
-// The line above creates a collection called foodMenu.
-// A quoted heading such as "Starter" is a category.
-// Square brackets [ ] contain all items in that category.
-// Curly brackets { } contain one individual item.
-// "name" is the item name and price shown in bold.
-// "description" is the smaller explanation shown underneath it.
-// "image" is optional. Add an image URL only when you want that food to have a picture.
-// A comma separates one item or category from the next.
+
+"Starter": [
+
+{
+name: "Smoked BBQ Buffalo Wings — €7.00",
+description: "Smoked chicken wings with BBQ sauce."
+},
+
+{
+name: "Mozzarella Fingers — €7.00",
+description: "Breaded mozzarella fingers served with taco salsa dip sauce."
+},
+
+{
+name: "Spring Rolls — €7.00",
+description: "Crispy vegetable rolls served with sweet and sour sauce."
+},
+
+{
+name: "Buttered Onion Rings — €7.00",
+description: "Crispy onion rings served with honey mustard sauce."
+},
+
+{
+name: "Garlic Bread — €4.00",
+description: "Sliced French baguette topped with garlic butter, parsley and oregano."
+},
+
+{
+name: "Garlic Bread with Cheese — €4.50",
+description: "Sliced French baguette with garlic butter, parsley and oregano, topped with mozzarella cheese."
+},
+
+{
+name: "Grilled Halloumi Tzatziki — €10.00",
+description: "Grilled halloumi cheese served with tzatziki and pita bread."
+},
+
+{
+name: "Chips / French Fries — €4.50",
+description: ""
+}
+
+],
+
+
+
+"Platters": [
+
+{
+name: "Combo Platter — €20.00",
+description: "Chicken wings, spring rolls, chicken nuggets, mozzarella fingers and French fries. Served with pitta bread and dips."
+},
+
+{
+name: "Mexican Nachos Platter — €14.00",
+description: "Mexican nachos with melted cheese, served with sour cream, salsa and guacamole."
+}
+
+],
+
+
+
+"Salads": [
+
+{
+name: "Greek Salad — €10.00",
+description: "Tomato, cucumber, green pepper, onion, olives and feta cheese.",
+image: "https://i.ibb.co/MymNc7hg/DSC8947.jpg"
+},
+
+{
+name: "Caesar Chicken Salad — €14.00",
+description: "Grilled chicken, crispy bacon, croutons and cherry tomatoes, served with Caesar dressing."
+},
+
+{
+name: "Quinoa Chicken Avocado Salad — €16.00",
+description: "Quinoa, chicken, avocado, sweet corn, cucumber, onion, pepper and dressing.",
+image: "https://i.ibb.co/4RpKtZJs/DSC8953.jpg"
+},
+
+{
+name: "Orange Steak Salad — €17.00",
+description: "Fresh seasonal salad with sun-dried tomatoes, orange, walnuts, cherry tomatoes, rocket, honey mustard dressing and grilled beef strips."
+}
+
+],
+
+
+
+"Sandwiches": [
+
+{
+name: "Clubhouse Sandwich — €13.00",
+description: "Triple toast with chicken, egg, cheese, bacon, lettuce, tomato and mayonnaise. Served with French fries.",
+image: "https://i.ibb.co/v6SfqgBm/DSC8962.jpg"
+},
+
+{
+name: "Chicken Wrap — €12.00",
+description: "Marinated chicken strips wrapped in a Mexican tortilla with Edam cheese and lettuce. Served with French fries and coleslaw salad.",
+image: "https://i.ibb.co/2Y8C55G8/DSC8990.jpg"
+},
+
+{
+name: "Halloumi Cheese and Lountza Sandwich — €12.00",
+description: "Cyprus pitta sandwich with halloumi cheese and lountza. Served with French fries.",
+image: "https://i.ibb.co/v6VjVxBV/DSC8976.jpg"
+},
+
+{
+name: "Pork Baguette — €15.00",
+description: "Pork schnitzel with cream cheese, caramelized onions, tomato and lettuce. Served with French fries and coleslaw salad.",
+image: "https://i.ibb.co/qFLLFdb6/DSC8965.jpg"
+}
+
+],
+
+
+
+"Burgers": [
+
+{
+name: "House Burger (Beef and Pork) — €14.00",
+description: "Our homemade juicy burger with tomato and lettuce.",
+image: "https://i.ibb.co/N6XTWsHh/DSC9029.jpg"
+},
+
+{
+name: "Cheeseburger (Beef and Pork) — €15.00",
+description: "Homemade juicy burger with cheddar cheese, tomato and lettuce."
+},
+
+{
+name: "Napastar's Real Burger (Beef and Pork) — €16.00",
+description: "Our special homemade burger with smoked bacon, cheddar cheese, tomato, caramelized onions, lettuce and our special sauce.",
+image: "https://i.ibb.co/TBvJykSY/DSC9025.jpg"
+},
+
+{
+name: "Black Angus Burger — €18.00",
+description: "Black Angus beef burger with smoked bacon, pickles, tomato, lettuce and Jack Daniel's sauce.",
+image: "https://i.ibb.co/PpQptvp/DSC8981.jpg"
+},
+
+{
+name: "Fried Chicken Burger — €14.00",
+description: "Fried chicken burger with tomato and lettuce."
+},
+
+{
+name: "Veggie Burger — €13.00",
+description: "Vegetarian burger with lettuce and tomato.",
+image: "https://i.ibb.co/Sw0145h3/DSC9033.jpg"
+}
+
+],
+
+
+
+"Pizza": [
+
+{
+name: "Margarita Pizza — €10.00",
+description: "Pizza with tomato sauce, mozzarella cheese and oregano."
+},
+
+{
+name: "Pepperoni Pizza — €11.00",
+description: "Pizza with tomato sauce, mozzarella cheese and pepperoni."
+},
+
+{
+name: "Special Pizza — €12.00",
+description: "Pizza with tomato sauce, smoked bacon, ham, mushrooms, bell peppers, tomato and mozzarella cheese, topped with oregano."
+},
+
+{
+name: "Hawaiian Pizza — €11.00",
+description: "Pizza with tomato sauce, mozzarella cheese, ham and pineapple."
+}
+
+],
+
+
+
+"Main Dishes": [
+
+{
+name: "Grilled Pork Chop Jumbo — €18.00",
+description: "Fresh juicy pork chop seasoned with herbs and served with French fries and tzatziki.",
+image: "https://i.ibb.co/7xDhn4qn/DSC9001.jpg"
+},
+
+{
+name: "Angus Sirloin Steak — €26.00",
+description: "Grilled sirloin steak served with French fries, rice and oven-baked vegetables. Choice of sauce."
+},
+
+{
+name: "Chicken A La Creme — €18.00",
+description: "Chicken fillet with cream, bacon, onion, mushrooms, green pepper and fresh basil. Served with rice and oven-baked vegetables."
+},
+
+{
+name: "Fresh BBQ Spare Ribs — €18.00",
+description: "Juicy baby back pork ribs coated with BBQ sauce. Served with French fries and BBQ sauce."
+},
+
+{
+name: "Pork Schnitzel — €16.00",
+description: "Pork schnitzel with chips and honey mustard sauce.",
+image: "https://i.ibb.co/FbyVB9bP/DSC9021.jpg"
+},
+
+{
+name: "Chicken Fillet — €16.00",
+description: "Fresh chicken fillet marinated with herbs, grilled and served with French fries and tzatziki.",
+image: "https://i.ibb.co/1Jrx67Lm/DSC9011.jpg"
+},
+
+{
+name: "Grilled Swordfish — €18.00",
+description: "Grilled swordfish served with chips, green salad and lemon dressing.",
+image: "https://i.ibb.co/Qj89H461/DSC8985.jpg"
+},
+
+{
+name: "Fish & Chips — €18.00",
+description: "Served with crispy chips and tartar sauce."
+}
+
+],
+
+
+
+"Pasta": [
+
+{
+name: "Spaghetti Bolognese — €14.00",
+description: "Spaghetti with pork minced meat, tomato sauce, chopped parsley and Parmesan cheese."
+},
+
+{
+name: "Italian Napolitan — €12.00",
+description: "Spaghetti pasta with Italian tomato sauce and chopped basil."
+},
+
+{
+name: "Carbonara — €14.00",
+description: "Spaghetti carbonara with bacon, mushrooms, onion and garlic, served with Parmesan cheese."
+},
+
+{
+name: "Seafood — €18.00",
+description: "Spaghetti with mixed seafood, cream, onion and garlic."
+}
+
+],
+
+
+
+"Kids Corner": [
+
+{
+name: "Spaghetti Bolognese — €9.00",
+description: "Spaghetti pasta with pork minced meat, tomato sauce, chopped parsley and Parmesan cheese."
+},
+
+{
+name: "Chicken Nuggets — €9.00",
+description: "Chicken nuggets served with French fries."
+},
+
+{
+name: "Fish Fingers — €9.00",
+description: "Fish fingers served with French fries."
+}
+
+],
+
+
+
+"Breakfast": [
+
+{
+name: "Napastar Breakfast — €10.00",
+description: "Eggs, bacon, ham, sausage, baked beans, toast, mushrooms and tomato.",
+image: "https://i.ibb.co/Y4HP08rM/DSC9038.jpg"
+},
+
+{
+name: "Napa Healthy Breakfast — €9.00",
+description: "Protein bread with homemade avocado spread, turkey, banana, tomato, cucumber and pomegranate.",
+image: "https://i.ibb.co/sJ33tv9y/DSC9019.jpg"
+},
+
+{
+name: "Avocado Fried Eggs Toast — €9.00",
+description: "Fried eggs served on two slices of black bread with avocado, radishes, onions, peppers and tomatoes.",
+image: "https://i.ibb.co/hFhSSB3B/att-m-MH7-Qm-z1vt-ucuq-NPINv2-X6t-Sy-Ce12-Af-UEeyo-Xz-NKQ.jpg"
+},
+
+{
+name: "Ham and Cheese Toast — €8.00",
+description: "Ham and cheese toast served with chips.",
+image: "https://i.ibb.co/gZj3LjKc/DSC8971.jpg"
+}
+
+],
+
+
+
+"Omelet": [
+
+{
+name: "Plain Omelet — €7.00",
+description: "Three eggs plain omelet with cucumber and tomato."
+},
+
+{
+name: "Healthy Omelet — €10.00",
+description: "Three eggs omelet stuffed with turkey, cheese, avocado, egg white, honey and brown bread with homemade peanut butter.",
+image: "https://i.ibb.co/N230sprP/DSC9015.jpg"
+},
+
+{
+name: "Special Omelet — €10.00",
+description: "Three eggs omelet with ham, bacon, mushrooms, cheese and chips."
+}
+
+],
+
+
+
+"Desserts": [
+
+{
+name: "Lava Cake — €8.00",
+description: "Served with chocolate topping and vanilla ice cream."
+},
+
+{
+name: "Orange Pie — €8.00",
+description: "Served with vanilla ice cream.",
+image: "https://i.ibb.co/0PSbsBd/DSC9047.jpg"
+},
+
+{
+name: "Apple Pie — €8.00",
+description: "Served with whipped cream, cinnamon and vanilla ice cream."
+},
+
+{
+name: "Baklavas — €8.00",
+description: "Served with vanilla ice cream.",
+image: "https://i.ibb.co/fY6Y03Cj/DSC9044.jpg"
+},
+
+{
+name: "Selection of Ice Cream — €3.00 per scoop",
+description: "Chocolate, vanilla and strawberry."
+}
+
+]
+
+};
+
+
+
+// =====================================================
+// GREEK FOOD MENU
+// =====================================================
+
+const foodMenuGreek = {
 
 
 "Starter": [
-{name: "Smoked BBQ Buffalo Wings — €7.00",description: "Smoked chicken wings with BBQ sauce."},
-{name: "Mozzarella Fingers — €7.00",description: "Breaded mozzarella fingers served with taco salsa dip sauce."},
-{name: "Spring Rolls — €7.00",description: "Crispy vegetable rolls served with sweet and sour sauce."},
-{name: "Buttered Onion Rings — €7.00",description: "Crispy onion rings served with honey mustard sauce."},
-{name: "Garlic Bread — €4.00",description: "Sliced French baguette topped with garlic butter, parsley and oregano."},
-{name: "Garlic Bread with Cheese — €4.50",description: "Sliced French baguette with garlic butter, parsley and oregano, topped with mozzarella cheese."},
-{name: "Grilled Halloumi Tzatziki — €10.00",description: "Grilled halloumi cheese served with tzatziki and pita bread."},
-{name:"Chips / French Fries — €4.50",description: ""}
-],
-"Platters": [
-{name: "Combo Platter — €20.00",description: "Chicken wings, spring rolls, chicken nuggets, mozzarella fingers and French fries. Served with pita bread and dips."},
-{name: "Mexican Nachos Platter — €14.00",description: "Mexican nachos with melted cheese, served with sour cream, salsa and guacamole."}
-],
-"Salads": [
-{name: "Greek Salad— €10.00",description: "Tomato, cucumber, green pepper, onion, olives and feta cheese.",image:"https://i.ibb.co/MymNc7hg/DSC8947.jpg"},
-{name: "Caesar Chicken Salad— €14.00",description: "Grilled chicken, crispy bacon, croutons and cherry tomatoes, served with Caesar dressing."},
-{name: "Quinoa Chicken Avocado Salad — €16.00",description: "Quinoa, chicken, avocado, sweet corn, cucumber, onion, pepper and dressing.",image:"https://i.ibb.co/4RpKtZJs/DSC8953.jpg"},
-{name: "Orange Steak Salad — €17.00",description: "Fresh seasonal salad with sun-dried tomatoes, orange, walnuts, tomato cherry, roculla, honey mustard dressing and grilled beef strips."}
-],
-"Sandwiches": [
-{name: "Clubhouse Sandwich— €13.00",description: "Triple toast with chicken, egg, cheese, bacon, lettuce, tomato and mayonnaise. Served with French fries.",image:"https://i.ibb.co/v6SfqgBm/DSC8962.jpg"},
-{name: "Chicken Wrap — €12.00",description: "Marinated chicken strips wrapped in a Mexican tortilla with Edam cheese and lettuce. Served with French fries and coleslaw salad.",image:"https://i.ibb.co/2Y8C55G8/DSC8990.jpg"},
-{name: "Halloumi Cheese and Lountza Sandwich — €12.00",description: "Cyprus pita sandwich with halloumi cheese and lountza. Served with French fries",image:"https://i.ibb.co/v6VjVxBV/DSC8976.jpg"},
-{name: "Pork Baguette — €15.00",description: "Pork schnitzel with cream cheese, caramelized onions, tomato, lettuce and French fries. Served with coleslaw salad.",image:"https://i.ibb.co/qFLLFdb6/DSC8965.jpg"}
-],
-"Burgers": [
-{name: "House Burger (Beef and Pork) — €14.00",description: "Our homemade juicy burger with tomato and lettuce.",image:"https://i.ibb.co/N6XTWsHh/DSC9029.jpg"},
-{name: "Cheeseburger (Beef and Pork) — €15.00",description: "Homemade juicy burger with cheddar cheese, tomato and lettuce."},
-{name: "Napastar's Real Burger (Beef and Pork) — €16.00",description: "Our special homemade burger with smoked bacon, cheddar cheese, tomato, caramelized onions, lettuce and our special sauce.",image:"https://i.ibb.co/TBvJykSY/DSC9025.jpg"},
-{name: "Black Angus Burger — €18.00",description: "Black Angus beef burger with smoked bacon, pickles, tomato, lettuce and Jack Daniel's sauce.",image:"https://i.ibb.co/PpQptvp/DSC8981.jpg"},
-{name: "Fried Chicken Burger — €14.00",description: "Fried chicken burger with tomato and lettuce."},
-{name: "Veggie Burger — €13.00",description: "Vegetarian burger with lettuce and tomato.",image:"https://i.ibb.co/Sw0145h3/DSC9033.jpg"}
-],
-"Pizza": [
-{name: "Margarita Pizza — €10.00",description: "Pizza with tomato sauce, mozzarella cheese and oregano."},
-{name: "Pepperoni Pizza — €11.00",description: "Pizza with tomato sauce, mozzarella cheese and pepperoni."},
-{name: "Special Pizza — €12.00",description: "Pizza with tomato sauce, smoked bacon, ham, mushrooms, bell peppers, tomato and mozzarella cheese, topped with oregano."},
-{name: "Hawaiian Pizza — €11.00",description: "Pizza with tomato sauce, mozzarella cheese, ham and pineapple."}
-],
-"Main Dishes": [
-{name: "Grilled Pork Chop Jumbo — €18.00",description: "Fresh juicy pork chop seasoned with herbs and served with French fries and tzatziki.",image:"https://i.ibb.co/7xDhn4qn/DSC9001.jpg"},
-{name: "Angus Sirloin Steak — €26.00",description: "Grilled sirloin steak served with French fries, rice and oven-baked vegetables. Choice of sauce."},
-{name: "Chicken A La Creme — €18.00",description: "Chicken fillet with cream, bacon, onion, mushrooms, green pepper and fresh basil. Served with rice and oven-baked vegetables"},
-{name: "Fresh BBQ Spare Ribs — €18.00",description: "Juicy baby back pork ribs coated with BBQ sauce. Served with French fries and BBQ sauce.",image:"https://i.ibb.co/CsMPHpDj/DSC9005.jpg"},
-{name: "Pork Schnitzel — €16.00",description: "Pork schnitzel with chips and honey mustard sauce.",image:"https://i.ibb.co/FbyVB9bP/DSC9021.jpg"},
-{name: "Chicken Fillet — €16.00",description: "Fresh chicken fillet marinated with herbs, grilled and served with French fries and tzatziki.",image:"https://i.ibb.co/1Jrx67Lm/DSC9011.jpg"},
-{name: "Grilled Swordfish — €18.00",description: "Grilled swordfish served with chips, green salad and lemon dressing",image:"https://i.ibb.co/Qj89H461/DSC8985.jpg"},
-{name: "Fish & Chips — €18.00",description: "Served with crispy chips and tartar sauce."}
-],
-"Pasta": [
-{name: "Spaghetti Bolognese — €14.00",description: "Spaghetti with pork and minced meat, tomato sauce, chopped parsley and Parmesan cheese."},
-{name: "Italian Napolitan — €12.00",description: "Spaghetti pasta with Italian tomato sauce and chopped basil."
+
+{
+name: "Smoked BBQ Buffalo Wings — €7.00",
+description: "Καπνιστές φτερούγες κοτόπουλου με BBQ σάλτσα."
 },
-{name: "Carbonara — €14.00",description: "Spaghetti carbonara with bacon, mushrooms, onion and garlic, served with Parmesan cheese."},
-{name: "Seafood — €18.00",description: "Spaghetti with mixed seafood, cream, onion and garlic."}
+
+{
+name: "Mozzarella Fingers — €7.00",
+description: "Μοτσαρέλα στικ με τάκο σάλτσα ντιπ."
+},
+
+{
+name: "Spring Rolls — €7.00",
+description: "Τραγανά ρολάκια με λαχανικά σερβίρονται με γλυκόξινη σάλτσα."
+},
+
+{
+name: "Buttered Onion Rings — €7.00",
+description: "Τραγανές ροδέλες κρεμμυδιών με σάλτσα μουστάρδας με μέλι."
+},
+
+{
+name: "Garlic Bread — €4.00",
+description: "Γαλλική μπαγκέτα κομμένη σε φέτες με βούτυρο σκόρδου, μαϊντανό και ρίγανη."
+},
+
+{
+name: "Garlic Bread with Cheese — €4.50",
+description: "Γαλλική μπαγκέτα κομμένη σε φέτες με βούτυρο σκόρδου, μαϊντανό, ρίγανη και τυρί."
+},
+
+{
+name: "Grilled Halloumi Tzatziki — €10.00",
+description: "Χαλλούμι σχάρας, τζατζίκι και πίτα."
+},
+
+{
+name: "Πατάτες Τηγανητές — €4.50",
+description: ""
+}
+
 ],
+
+
+
+"Platters": [
+
+{
+name: "Combo Platter — €20.00",
+description: "Φτερούγες κοτόπουλου, spring rolls, κοτομπουκιές, μοτσαρελάκια στικ και τηγανητές πατάτες. Σερβίρεται με πίτα και ντιπ."
+},
+
+{
+name: "Mexican Nachos Platter — €14.00",
+description: "Νάτσος με λιωμένο τυρί, γουακαμόλε, ξινόκρεμα και σάλσα."
+}
+
+],
+
+
+
+"Salads": [
+
+{
+name: "Greek Salad — €10.00",
+description: "Ντομάτα, αγγούρι, πράσινη πιπεριά, κρεμμύδι, ελιές, φέτα και ρίγανη.",
+image: "https://i.ibb.co/MymNc7hg/DSC8947.jpg"
+},
+
+{
+name: "Caesar Chicken Salad — €14.00",
+description: "Κοτόπουλο σχάρας, τραγανό μπέικον, κρουτόν, ντοματίνια, παρμεζάνα και ντρέσινγκ του Καίσαρα."
+},
+
+{
+name: "Quinoa Chicken Avocado Salad — €16.00",
+description: "Κινόα, κοτόπουλο, αβοκάντο, ντομάτα, αγγουράκι, κρεμμύδι, πιπεριά και ντρέσινγκ.",
+image: "https://i.ibb.co/4RpKtZJs/DSC8953.jpg"
+},
+
+{
+name: "Orange Steak Salad — €17.00",
+description: "Φρέσκο βοδινό φιλέτο, λιαστές ντομάτες, πορτοκάλι, καρύδια, ντοματίνια, ρόκα και σάλτσα μουστάρδας με μέλι."
+}
+
+],
+
+
+
+"Sandwiches": [
+
+{
+name: "Clubhouse Sandwich — €13.00",
+description: "Τριπλό τοστ με κοτόπουλο, αυγό, τυρί, μπέικον, μαρούλι, ντομάτα και μαγιονέζα. Σερβίρεται με πατάτες τηγανητές.",
+image: "https://i.ibb.co/v6SfqgBm/DSC8962.jpg"
+},
+
+{
+name: "Chicken Wrap — €12.00",
+description: "Μαριναρισμένες λωρίδες κοτόπουλου τυλιγμένες σε μεξικάνικη τορτίγια με τυρί Ένταμ και μαρούλι. Σερβίρεται με τηγανητές πατάτες και σαλάτα λάχανο.",
+image: "https://i.ibb.co/2Y8C55G8/DSC8990.jpg"
+},
+
+{
+name: "Halloumi Cheese & Lountza Sandwich — €12.00",
+description: "Χαλλούμι και λούντζα σε κυπριακή πίτα. Σερβίρεται με πατάτες τηγανητές.",
+image: "https://i.ibb.co/v6VjVxBV/DSC8976.jpg"
+},
+
+{
+name: "Pork Baguette — €15.00",
+description: "Μπαγκέτα με χοιρινό σνίτσελ, τυρί κρέμα, καραμελωμένα κρεμμύδια, ντομάτα και μαρούλι. Σερβίρεται με τηγανητές πατάτες και σαλάτα λάχανου.",
+image: "https://i.ibb.co/qFLLFdb6/DSC8965.jpg"
+}
+
+],
+
+
+
+"Burgers": [
+
+{
+name: "House Burger (Βοδινό και Χοιρινό) — €14.00",
+description: "Το σπιτικό μας ζουμερό μπιφτέκι με ντομάτα και μαρούλι.",
+image: "https://i.ibb.co/N6XTWsHh/DSC9029.jpg"
+},
+
+{
+name: "Cheeseburger (Βοδινό και Χοιρινό) — €15.00",
+description: "Το σπιτικό μας ζουμερό μπιφτέκι με τυρί τσένταρ, ντομάτα και μαρούλι."
+},
+
+{
+name: "Napastar's Real Burger — €16.00",
+description: "Το σπιτικό μας μπιφτέκι με καπνιστό μπέικον, τυρί τσένταρ, ντομάτα, καραμελωμένο κρεμμύδι, μαρούλι και την ειδική μας σάλτσα.",
+image: "https://i.ibb.co/TBvJykSY/DSC9025.jpg"
+},
+
+{
+name: "Black Angus Burger — €18.00",
+description: "Βοδινό μπιφτέκι Black Angus με καπνιστό μπέικον, τουρσί, ντομάτα, μαρούλι και σάλτσα Jack Daniel's.",
+image: "https://i.ibb.co/PpQptvp/DSC8981.jpg"
+},
+
+{
+name: "Fried Chicken Burger — €14.00",
+description: "Τηγανητό μπιφτέκι κοτόπουλου με ντομάτα και μαρούλι."
+},
+
+{
+name: "Veggie Burger — €13.00",
+description: "Χορτοφαγικό μπιφτέκι με μαρούλι και ντομάτα.",
+image: "https://i.ibb.co/Sw0145h3/DSC9033.jpg"
+}
+
+],
+
+
+
+"Pizza": [
+
+{
+name: "Margarita Pizza — €10.00",
+description: "Με σάλτσα ντομάτας, μοτσαρέλα και ρίγανη."
+},
+
+{
+name: "Pepperoni Pizza — €11.00",
+description: "Με σάλτσα ντομάτας, μοτσαρέλα και πεπερόνι."
+},
+
+{
+name: "Special Pizza — €12.00",
+description: "Με σάλτσα ντομάτας, καπνιστό μπέικον, ζαμπόν, μανιτάρια, πιπεριές, μοτσαρέλα και ρίγανη."
+},
+
+{
+name: "Hawaiian Pizza — €11.00",
+description: "Με σάλτσα ντομάτας, μοτσαρέλα, ζαμπόν και ανανά."
+}
+
+],
+
+
+
+"Main Dishes": [
+
+{
+name: "Grilled Pork Chop Jumbo — €18.00",
+description: "Ζουμερή χοιρινή μπριζόλα με καρυκεύματα στη σχάρα. Σερβίρεται με τηγανητές πατάτες και τζατζίκι.",
+image: "https://i.ibb.co/7xDhn4qn/DSC9001.jpg"
+},
+
+{
+name: "Angus Sirloin Steak — €26.00",
+description: "Βοδινό φιλέτο σερβίρεται με τηγανητές πατάτες, ρύζι και ψητά λαχανικά. Επιλογή σάλτσας."
+},
+
+{
+name: "Chicken A La Creme — €18.00",
+description: "Κοτόπουλο με φρέσκια κρέμα, κρεμμύδι, μανιτάρια, πιπεριά και φρέσκο βασιλικό. Σερβίρεται με ρύζι και ψητά λαχανικά."
+},
+
+{
+name: "Fresh BBQ Spare Ribs — €18.00",
+description: "Ζουμερά χοιρινά παϊδάκια με σάλτσα BBQ. Σερβίρονται με τηγανητές πατάτες και BBQ σάλτσα."
+},
+
+{
+name: "Pork Schnitzel — €16.00",
+description: "Χοιρινό σνίτσελ με τηγανητές πατάτες και σάλτσα μουστάρδας με μέλι.",
+image: "https://i.ibb.co/FbyVB9bP/DSC9021.jpg"
+},
+
+{
+name: "Chicken Fillet — €16.00",
+description: "Φρέσκο μαριναρισμένο φιλέτο κοτόπουλου στη σχάρα. Σερβίρεται με τηγανητές πατάτες και τζατζίκι.",
+image: "https://i.ibb.co/1Jrx67Lm/DSC9011.jpg"
+},
+
+{
+name: "Grilled Swordfish — €18.00",
+description: "Ξιφίας στη σχάρα με τηγανητές πατάτες, σαλάτα και ντρέσινγκ λεμονιού.",
+image: "https://i.ibb.co/Qj89H461/DSC8985.jpg"
+},
+
+{
+name: "Fish & Chips — €18.00",
+description: "Τηγανητό φιλέτο ψαριού σερβίρεται με πατάτες και σάλτσα ταρτάρ."
+}
+
+],
+
+
+
+"Pasta": [
+
+{
+name: "Spaghetti Bolognese — €14.00",
+description: "Μακαρόνια σπαγγέτι με χοιρινό κιμά, σάλτσα ντομάτας, μαϊντανό και παρμεζάνα."
+},
+
+{
+name: "Italian Napolitan — €12.00",
+description: "Ζυμαρικά με ιταλική σάλτσα ντομάτας και ψιλοκομμένο βασιλικό."
+},
+
+{
+name: "Carbonara — €14.00",
+description: "Σπαγγέτι καρμπονάρα με μπέικον, μανιτάρια, κρεμμύδι, σκόρδο και παρμεζάνα."
+},
+
+{
+name: "Seafood — €18.00",
+description: "Σπαγγέτι με διάφορα θαλασσινά, κρέμα, κρεμμύδι και σκόρδο."
+}
+
+],
+
+
+
 "Kids Corner": [
-{name: "Spaghetti Bolognese — €9.00",description: "Spaghetti pasta with pork and minced meat, tomato sauce, chopped parsley and Parmesan cheese."},
-{name: "Chicken Nuggets — €9.00",description: "Chicken nuggets served with French fries"},
-{name: "Fish Fingers — €9.00",description: "Fish fingers served with French fries."}
+
+{
+name: "Spaghetti Bolognese — €9.00",
+description: "Μακαρόνια σπαγγέτι με χοιρινό κιμά, σάλτσα ντομάτας, μαϊντανό και παρμεζάνα."
+},
+
+{
+name: "Chicken Nuggets — €9.00",
+description: "Κοτομπουκιές σερβίρονται με πατάτες τηγανητές."
+},
+
+{
+name: "Fish Fingers — €9.00",
+description: "Ψαρομπουκιές σερβίρονται με πατάτες τηγανητές."
+}
+
 ],
+
+
+
 "Breakfast": [
-{name: "Napastar Breakfast — €10.00",description: "Eggs, bacon, ham, sausage, baked beans, toast, mushrooms and tomato.",image:"https://i.ibb.co/Y4HP08rM/DSC9038.jpg"},
-{name: "Napa Healthy Breakfast — €9.00",description: "Protein bread with homemade avocado spread, turkey, banana, tomato, cucumber and pomegranate.",image: "https://i.ibb.co/sJ33tv9y/DSC9019.jpg"},
-{name: "Avocado Fried Eggs Toast— €9.00",description: "Fried eggs served on two slices of black bread with avocado, radishes, onions, peppers and tomatoes.",
-image: "https://i.ibb.co/hFhSSB3B/att-m-MH7-Qm-z1vt-ucuq-NPINv2-X6t-Sy-Ce12-Af-UEeyo-Xz-NKQ.jpg"},
-{name: "Ham and Cheese Toast — €8.00",description: "Ham and cheese toast served with chips.",image:"https://i.ibb.co/gZj3LjKc/DSC8971.jpg"}
+
+{
+name: "Napastar Breakfast — €10.00",
+description: "Αυγά, μπέικον, λουκάνικα, χαλλούμι, hash browns, λούντζα, φασόλια, ντομάτα και αγγουράκι. Συνοδεύεται με τοστ.",
+image: "https://i.ibb.co/Y4HP08rM/DSC9038.jpg"
+},
+
+{
+name: "Napa Healthy Breakfast — €9.00",
+description: "Πρωτεϊνούχο ψωμί με σπιτικό φυστικοβούτυρο, μπανάνα, γκρανόλα, φράουλες και μέλι.",
+image: "https://i.ibb.co/sJ33tv9y/DSC9019.jpg"
+},
+
+{
+name: "Avocado Fried Eggs Toast — €9.00",
+description: "Δύο τηγανητά αυγά σε δύο φέτες ψωμί με αβοκάντο, κρεμμύδι, πιπεριές και ντομάτες.",
+image: "https://i.ibb.co/hFhSSB3B/att-m-MH7-Qm-z1vt-ucuq-NPINv2-X6t-Sy-Ce12-Af-UEeyo-Xz-NKQ.jpg"
+},
+
+{
+name: "Ham and Cheese Toast — €8.00",
+description: "Τοστ ζαμπόν και τυρί. Σερβίρεται με πατάτες.",
+image: "https://i.ibb.co/gZj3LjKc/DSC8971.jpg"
+}
+
 ],
+
+
+
 "Omelet": [
-{name: "Plain Omelet — €7.00",description: "Three eggs plain omelet with cucumber and tomato."},
-{name: "Healthy Omelet — €10.00",description: "Three eggs omelet stuffed with turkey, cheese, avocado, egg white, honey and brown bread with homemade peanut butter.",image:"https://i.ibb.co/N230sprP/DSC9015.jpg"},
-{name: "Special Omelet — €10.00",description: "Three eggs omelet with ham, bacon, mushrooms, cheese and chips."}
+
+{
+name: "Plain Omelet — €7.00",
+description: "Ομελέτα τριών αυγών με αγγούρι και ντομάτα."
+},
+
+{
+name: "Healthy Omelet — €10.00",
+description: "Ομελέτα τριών αυγών με γαλοπούλα, τυρί και αβοκάντο. Συνοδεύεται με μαύρο ψωμί και σπιτικό φυστικοβούτυρο.",
+image: "https://i.ibb.co/N230sprP/DSC9015.jpg"
+},
+
+{
+name: "Special Omelet — €10.00",
+description: "Ομελέτα τριών αυγών με ζαμπόν, μπέικον, μανιτάρια, τυρί και τηγανητές πατάτες."
+}
+
 ],
+
+
+
 "Desserts": [
-{name: "Lava Cake — €8.00",description: "Served with chocolate topping and vanilla ice cream."},
-{name: "Orange Pie — €8.00",description: "Served with vanilla ice cream.",image:"https://i.ibb.co/0PSbsBd/DSC9047.jpg"},
-{name: "Apple Pie — €8.00",description: "Served with whipped cream, cinnamon and vanilla ice cream."},
-{name: "Baklavas — €8.00",description: "Served with vanilla ice cream.",image:"https://i.ibb.co/fY6Y03Cj/DSC9044.jpg"},
-{name: "Selection of Ice Cream— €3.00 per scoop",description: "Chocolate, vanilla, strawberry and chocolate."}
+
+{
+name: "Lava Cake — €8.00",
+description: "Σερβίρεται με σος σοκολάτας και παγωτό βανίλιας."
+},
+
+{
+name: "Πορτοκαλόπιτα — €8.00",
+description: "Σερβίρεται με παγωτό βανίλια.",
+image: "https://i.ibb.co/0PSbsBd/DSC9047.jpg"
+},
+
+{
+name: "Μηλόπιτα — €8.00",
+description: "Σερβίρεται με σαντιγί, κανέλα και παγωτό βανίλιας."
+},
+
+{
+name: "Μπακλαβάς — €8.00",
+description: "Σερβίρεται με παγωτό βανίλια.",
+image: "https://i.ibb.co/fY6Y03Cj/DSC9044.jpg"
+},
+
+{
+name: "Επιλογή Παγωτού — €3.00 ανά μπάλα",
+description: "Σοκολάτα, βανίλια και φράουλα."
+}
+
 ]
+
 };
 
-// DRINKS DATA — replace these samples with your exact drinks and prices.
-const drinksMenu = { // Creates a second collection using exactly the same structure for drinks.
+
+
+// =====================================================
+// DRINK MENU
+// =====================================================
+
+const drinksMenu = {
+
+
 "Cocktails": [
-{name: "Classic Mojito",description: "Cuban light rum, fresh mint sprigs, sugar, fresh lime, lime cordial and soda water."},
-{name: "Sex on the Beach",description: "Vodka, peach schnapps, orange juice and grenadine."},
-{name: "Long Island Iced Tea",description: "Vodka, white rum, tequila, gin, Cointreau, cola and lemon squash."},
-{name: "Piña Colada",description: "White rum, coconut liqueur, pineapple juice and fresh cream."},
-{name: "Staraki",description: "Skinos mastic liqueur, lime, Sprite and blue curaçao."},
-{name: "Strawberry Daiquiri",description: "White rum, Cointreau, strawberry liqueur, fresh strawberries and lime cordial."},
-{name: "Rolls Royce",description: "Whisky, Baileys, Cointreau and Tia Maria."},
-{name: "Cosmopolitan",description: "Vodka, Cointreau, cranberry juice, lime cordial and orange twist."},
-{name: "Rainbow",description: "White rum, triple sec, banana liqueur, orange juice, grenadine and blue curaçao."},
-{name: "Aperol Spritz",description: "Aperol, Prosecco and soda water."},
-{name: "Doctor Cocktail",description: "Whisky, triple sec, lemon juice, lime and soda."},
-{name: "Strawberry Margarita",description: "Tequila, strawberry liqueur, Cointreau, lime cordial and lemon juice."},
-{name: "Black Russian",description: "Vodka, Kahlúa and cola."},
-{name: "Caipirinha",description: "Fresh lime, cachaça and soda."},
-{name: "Brandy Sour", description: "Brandy, lemon squash, Angostura bitters and soda water."},
-{name: "Ouzo Special",description: "Ouzo, lemon squash, lemonade and grenadine."},
-{name: "San Francisco",description: "Vodka, banana liqueur, orange juice and grenadine."},
-{name: "Alexander",description: "Brandy, coffee liqueur, fresh cream and cinnamon."},
-{name: "Mbella",description: "Aperol, Disaronno, fresh lime and Amarena cherry."},
-{name: "Negroni",description: "Sweet vermouth, Campari and gin."}
+
+{
+name: "Classic Mojito",
+description: "Cuban light rum, fresh mint sprigs, sugar, fresh lime, lime cordial and soda water."
+},
+
+{
+name: "Sex on the Beach",
+description: "Vodka, peach schnapps, orange juice and grenadine."
+},
+
+{
+name: "Long Island Iced Tea",
+description: "Vodka, white rum, tequila, gin, Cointreau, cola and lemon squash."
+},
+
+{
+name: "Piña Colada",
+description: "White rum, coconut liqueur, pineapple juice and fresh cream."
+},
+
+{
+name: "Staraki",
+description: "Skinos mastic liqueur, lime, Sprite and blue curaçao."
+},
+
+{
+name: "Strawberry Daiquiri",
+description: "White rum, Cointreau, strawberry liqueur, fresh strawberries and lime cordial."
+},
+
+{
+name: "Rolls Royce",
+description: "Whisky, Baileys, Cointreau and Tia Maria."
+},
+
+{
+name: "Cosmopolitan",
+description: "Vodka, Cointreau, cranberry juice, lime cordial and orange twist."
+},
+
+{
+name: "Rainbow",
+description: "White rum, triple sec, banana liqueur, orange juice, grenadine and blue curaçao."
+},
+
+{
+name: "Aperol Spritz",
+description: "Aperol, Prosecco and soda water."
+},
+
+{
+name: "Doctor Cocktail",
+description: "Whisky, triple sec, lemon juice, lime and soda."
+},
+
+{
+name: "Strawberry Margarita",
+description: "Tequila, strawberry liqueur, Cointreau, lime cordial and lemon juice."
+},
+
+{
+name: "Black Russian",
+description: "Vodka, Kahlúa and cola."
+},
+
+{
+name: "Caipirinha",
+description: "Fresh lime, cachaça and soda."
+},
+
+{
+name: "Brandy Sour",
+description: "Brandy, lemon squash, Angostura bitters and soda water."
+},
+
+{
+name: "Ouzo Special",
+description: "Ouzo, lemon squash, lemonade and grenadine."
+},
+
+{
+name: "San Francisco",
+description: "Vodka, banana liqueur, orange juice and grenadine."
+},
+
+{
+name: "Alexander",
+description: "Brandy, coffee liqueur, fresh cream and cinnamon."
+},
+
+{
+name: "Mbella",
+description: "Aperol, Disaronno, fresh lime and Amarena cherry."
+},
+
+{
+name: "Negroni",
+description: "Sweet vermouth, Campari and gin."
+}
+
 ],
+
+
 
 "Non-Alcoholic Cocktails": [
-{name: "Mickey Mouse",description: "A mix of fruit juices and grenadine."},
-{name: "Tropical Dream ",description: "Kiwi liqueur, lime cordial and lemonade."},
-{name: "Napa Sheriff",description: "Blackcurrant, pineapple juice and grapefruit juice."}
+
+{
+name: "Mickey Mouse",
+description: "A mix of fruit juices and grenadine."
+},
+
+{
+name: "Tropical Dream",
+description: "Kiwi syrup, lime cordial and lemonade."
+},
+
+{
+name: "Napa Sheriff",
+description: "Blackcurrant, pineapple juice and grapefruit juice."
+}
+
 ],
 
-"Beers": { // Beers opens another level instead of opening products immediately.
-"Draught": [ // First beer subcategory.
-{ name: "KEO", description: " Half pint — €4.00<br>Pint — €5.00." },
-{ name: "Carlsberg", description:  " Half pint — €4.00<br>Pint — €5.00." },
-{ name: "LEON", description:  " Half pint — €4.00<br>Pint — €5.00." },
-{ name: "Stella Artois", description:  " Half pint — €4.50<br>Pint — €6.00." },
-{ name: "Guinness", description:  " Half pint — €5.50<br>Pint — €7.00." },
-{ name: "Strongbow", description:  " Half pint — €4.50<br>Pint — €6.00." }
-],
-"Bottled": [ // Second beer subcategory.
-{ name: "Carlsberg", description: "" },
-{ name: "KEO", description: "" },
-{ name: "Koppaberg", description: "" },
-{ name: "Heineken", description: "" },
-{ name: "Budweiser", description: "" },
-{ name: "Corona Extra", description: "" },
-{ name: "John Smiths", description: "" },
-{ name: "Magners", description: "" },
-{ name: "Somersby", description: "" }
-]
+
+
+"Beers": {
+
+
+"Draught": [
+
+{
+name: "KEO",
+description: "Half pint — €4.00<br>Pint — €5.00"
 },
+
+{
+name: "Carlsberg",
+description: "Half pint — €4.00<br>Pint — €5.00"
+},
+
+{
+name: "LEON",
+description: "Half pint — €4.00<br>Pint — €5.00"
+},
+
+{
+name: "Stella Artois",
+description: "Half pint — €4.50<br>Pint — €6.00"
+},
+
+{
+name: "Guinness",
+description: "Half pint — €5.50<br>Pint — €7.00"
+},
+
+{
+name: "Strongbow",
+description: "Half pint — €4.50<br>Pint — €6.00"
+}
+
+],
+
+
+"Bottled": [
+
+{name: "Carlsberg", description: ""},
+
+{name: "KEO", description: ""},
+
+{name: "Kopparberg", description: ""},
+
+{name: "Heineken", description: ""},
+
+{name: "Budweiser", description: ""},
+
+{name: "Corona Extra", description: ""},
+
+{name: "John Smiths", description: ""},
+
+{name: "Magners", description: ""},
+
+{name: "Somersby", description: ""}
+
+]
+
+},
+
+
 
 "Soft Drinks": [
-{ name: "Coca Cola", description: "" },
-{ name: "Coca Cola Zero", description: "" },
-{ name: "Sprite", description: "" },
-{ name: "Sprite Zero", description: "" },
-{ name: "Fanta", description: "" },
-{ name: "Soda water", description: "" },
-{ name: "Tonic water", description: "" },
-{ name: "Bitter Lemon", description: "" }
+
+{name: "Coca Cola", description: ""},
+
+{name: "Coca Cola Zero", description: ""},
+
+{name: "Sprite", description: ""},
+
+{name: "Sprite Zero", description: ""},
+
+{name: "Fanta", description: ""},
+
+{name: "Soda Water", description: ""},
+
+{name: "Tonic Water", description: ""},
+
+{name: "Bitter Lemon", description: ""}
+
 ],
+
+
 
 "Juices": [
-{ name: "Orange", description: "" },
-{ name: "Apple", description: "" },
-{ name: "Pineapple", description: "" },
-{ name: "Grapefruit", description: "" },
-{ name: "Cranberry", description: "" }
+
+{name: "Orange", description: ""},
+
+{name: "Apple", description: ""},
+
+{name: "Pineapple", description: ""},
+
+{name: "Grapefruit", description: ""},
+
+{name: "Cranberry", description: ""}
+
 ],
+
+
 
 "Cold Beverages": [
-{ name: "Ice Tea — €4.00", description: "Lemon or Peach " },
-{ name: "Mineral Water — €2.50", description: "" },
-{ name: "Sparkling water — €4.00", description: "" },
-{ name: "Energy Drink — €5.00", description: "" },
-{ name: "Milkshake — €4.00", description: "Chocolate,Vanilla,Strawberry" }
+
+{
+name: "Ice Tea — €4.00",
+description: "Lemon or Peach"
+},
+
+{
+name: "Mineral Water — €2.50",
+description: ""
+},
+
+{
+name: "Sparkling Water — €4.00",
+description: ""
+},
+
+{
+name: "Energy Drink — €5.00",
+description: ""
+},
+
+{
+name: "Milkshake — €4.00",
+description: "Chocolate, Vanilla, Strawberry"
+}
+
 ],
+
+
 
 "Cold Coffee": [
-{ name: "Freddo Espresso — €4.00", description: "" },
-{ name: "Freddo Cappuccino — €4.50", description: "" },
-{ name: "Frappe — €3.50", description: "" },
-{ name: "Frappe with Baileys — €7.00", description: "" },
-{ name: "Frappe with Vanilla Ice Cream — €7.00", description: "" }
+
+{name: "Freddo Espresso — €4.00", description: ""},
+
+{name: "Freddo Cappuccino — €4.50", description: ""},
+
+{name: "Frappe — €3.50", description: ""},
+
+{name: "Frappe with Baileys — €7.00", description: ""},
+
+{name: "Frappe with Vanilla Ice Cream — €7.00", description: ""}
+
 ],
+
+
 
 "Hot Beverages": [
-{ name: "Instant Coffee — €4.00", description: "" },
-{ name: "Filter Coffee — €4.50", description: "" },
-{ name: "Espresso — €3.00", description: "" },
-{ name: "Double Espresso — €5.00", description: "" },
-{ name: "Cappuccino — €4.50", description: "" },
-{ name: "Caffe Late — €5.00", description: "" },
-{ name: "Hot Chocolate — €5.00", description: "" },
-{ name: "Tea — €4.00", description: "" },
-{ name: "Irish Coffee — €7.00", description: "Jameson Irish whisky,filter coffe,whipped cream" },
-{ name: "Calypso Coffee — €7.00", description: "Tia Maria,filter coffee,whipped cream" }
-],
 
-"Shots":[
-{ name: "Blow Job — €5.00", description: "Vodka,Peach Snaps,Fresh Cream" },
-{ name: "B-52 — €5.00", description: "Tia Maria,Baileys,Cointreau" }
-],
+{name: "Instant Coffee — €4.00", description: ""},
 
-"Spirits": { // Spirits opens a further level, just like Beers and Wines.
-"Whisky": [ // Items belonging to the Whisky subcategory.
-{ name: "Famous Grouse — €6.00", description: "" },
-{ name: "Red Label — €6.00", description: "" },
-{ name: "Jack Daniels — €6.00", description: "" },
-{ name: "Southern Comfort — €6.00", description: "" },
-{ name: "Black Label — €7.00", description:"" },
-{ name: "Jim Beam — €7.00", description: "" },
-{ name: "Clenfiddich — €7.00", description:"" },
-{ name: "Chivas — €7.00", description: "" }
-],
+{name: "Filter Coffee — €4.50", description: ""},
 
-"Vodka": [ // Items belonging to the Vodka subcategory.
-{ name: "Absolut — €6.00", description: "" },
-{ name: "Smirnof Red — €6.00", description:"" },
-{ name: "Stoli — €6.00", description: "" },
-{ name: "Belvedere — €7.00", description:"" },
-{ name: "Grey Goose — €7.00", description: "" }
-],
-"Gin": [ // Items belonging to the Gin subcategory.
-{ name: "Gordons — €6.00", description:"" },
-{ name: "Bombay — €6.00", description: "" },
-{ name: "Hendricks — €7.00", description:"" }
-],
-"Rum": [ // Items belonging to the Rum subcategory.
-{ name: "Bacardi — €6.00", description:"" },
-{ name: "Captain Morgan — €6.00", description: "" }
-],
-"Tequila": [ // Items belonging to the Tequila subcategory.
-{ name: "Jose Cuervo — €6.00", description:"Classic or Special" },
-],
-"Brandy": [ // Items belonging to the Brandy subcategory.
-{ name: "Metaxa 5* — €6.00", description:"" },
-],
-"Cognacs":[ // Items belonging to the Brandy subcategory.
-{ name: "Courvoisier VS — €7.00", description:"" },
-{ name: "Remy Martin — €7.00", description: "" },
-{ name: "Hennessy — €7.00", description:"" },
-{ name: "Martell — €7.00", description: "" }
-]
+{name: "Espresso — €3.00", description: ""},
+
+{name: "Double Espresso — €5.00", description: ""},
+
+{name: "Cappuccino — €4.50", description: ""},
+
+{name: "Caffe Latte — €5.00", description: ""},
+
+{name: "Hot Chocolate — €5.00", description: ""},
+
+{name: "Tea — €4.00", description: ""},
+
+{
+name: "Irish Coffee — €7.00",
+description: "Jameson Irish whisky, filter coffee and whipped cream."
 },
 
-"Liquers":[
-{name: "Baylies — €6.00", description: ""},
+{
+name: "Calypso Coffee — €7.00",
+description: "Tia Maria, filter coffee and whipped cream."
+}
+
+],
+
+
+
+"Shots": [
+
+{
+name: "Blow Job — €5.00",
+description: "Vodka, Peach Schnapps and Fresh Cream."
+},
+
+{
+name: "B-52 — €5.00",
+description: "Tia Maria, Baileys and Cointreau."
+}
+
+],
+
+
+
+"Spirits": {
+
+
+"Whisky": [
+
+{name: "Famous Grouse — €6.00", description: ""},
+
+{name: "Red Label — €6.00", description: ""},
+
+{name: "Jack Daniels — €6.00", description: ""},
+
+{name: "Southern Comfort — €6.00", description: ""},
+
+{name: "Black Label — €7.00", description: ""},
+
+{name: "Jim Beam — €7.00", description: ""},
+
+{name: "Glenfiddich — €7.00", description: ""},
+
+{name: "Chivas — €7.00", description: ""}
+
+],
+
+
+"Vodka": [
+
+{name: "Absolut — €6.00", description: ""},
+
+{name: "Smirnoff Red — €6.00", description: ""},
+
+{name: "Stoli — €6.00", description: ""},
+
+{name: "Belvedere — €7.00", description: ""},
+
+{name: "Grey Goose — €7.00", description: ""}
+
+],
+
+
+"Gin": [
+
+{name: "Gordons — €6.00", description: ""},
+
+{name: "Bombay — €6.00", description: ""},
+
+{name: "Hendricks — €7.00", description: ""}
+
+],
+
+
+"Rum": [
+
+{name: "Bacardi — €6.00", description: ""},
+
+{name: "Captain Morgan — €6.00", description: ""}
+
+],
+
+
+"Tequila": [
+
+{
+name: "Jose Cuervo — €6.00",
+description: "Classic or Special"
+}
+
+],
+
+
+"Brandy": [
+
+{
+name: "Metaxa 5* — €6.00",
+description: ""
+}
+
+],
+
+
+"Cognacs": [
+
+{name: "Courvoisier VS — €7.00", description: ""},
+
+{name: "Remy Martin — €7.00", description: ""},
+
+{name: "Hennessy — €7.00", description: ""},
+
+{name: "Martell — €7.00", description: ""}
+
+]
+
+},
+
+
+
+"Liquers": [
+
+{name: "Baileys — €6.00", description: ""},
+
 {name: "Sambuca — €6.00", description: ""},
+
 {name: "Tia Maria — €6.00", description: ""},
+
 {name: "Kahlua — €6.00", description: ""},
+
 {name: "Frangelico — €6.00", description: ""},
-{name: "Amaretto di sarono — €6.00", description: ""},
+
+{name: "Amaretto Disaronno — €6.00", description: ""},
+
 {name: "Cointreau — €6.00", description: ""},
+
 {name: "Grand Marnier — €6.00", description: ""},
+
 {name: "Ursus — €6.00", description: ""}
+
 ],
 
-"Wines": { // Wines also opens another level.
+
+
+"Wines": {
+
+
 "White": [
-{ name: "Kalamos Agios Savvas — €16.00", description: "Bottle 750ml - Medium Sweet" },
-{ name: "Kalamos Agios Savvas — €5.00", description: "Bottle 187ml - Medium Sweet" },
-{ name: "Kalamos Xinisteri — €16.00", description: "Bottle 750ml - Dry" },
-{ name: "Moschofilero — €22.00", description: "Bottle 750ml - Dry" },
-{ name: "Moschofilero — €5.00", description: "Bottle 187ml - Dry" },
-],
-"Rosé": [
-{ name: "Mateus — €15.00", description: "Bottle 750ml - Medium Sweet" },
-{ name: "Mateus — €5.00", description: "Bottle 187ml - Medium Sweet" },
-{ name: "Kalamos Demetra — €16.00", description: "Bottle 750ml - Dry" },
-{ name: "Mateus — €5.00", description: "Bottle 187ml - Dry" }
-],
-"Red": [
-{ name: "Kalamos Agios Savvas — €16.00", description: "Bottle 750ml - Medium Sweet" },
-{ name: "Kalamos Agios Savvas — €5.00", description: "Bottle 187ml - Medium Sweet" },
-{ name: "Kalamos — €16.00", description: "Bottle 750ml - Dry" },
-{ name: "Agiorgitiko — €22.00", description: "Bottle 750ml - Dry" },
-{ name: "Agiorgitiko — €5.00", description: "Bottle 187ml - Dry" }
-]
+
+{
+name: "Kalamos Agios Savvas — €16.00",
+description: "Bottle 750ml - Medium Sweet"
 },
+
+{
+name: "Kalamos Agios Savvas — €5.00",
+description: "Bottle 187ml - Medium Sweet"
+},
+
+{
+name: "Kalamos Xinisteri — €16.00",
+description: "Bottle 750ml - Dry"
+},
+
+{
+name: "Moschofilero — €22.00",
+description: "Bottle 750ml - Dry"
+},
+
+{
+name: "Moschofilero — €5.00",
+description: "Bottle 187ml - Dry"
+}
+
+],
+
+
+"Rosé": [
+
+{
+name: "Mateus — €15.00",
+description: "Bottle 750ml - Medium Sweet"
+},
+
+{
+name: "Mateus — €5.00",
+description: "Bottle 187ml - Medium Sweet"
+},
+
+{
+name: "Kalamos Demetra — €16.00",
+description: "Bottle 750ml - Dry"
+},
+
+{
+name: "Mateus — €5.00",
+description: "Bottle 187ml - Dry"
+}
+
+],
+
+
+"Red": [
+
+{
+name: "Kalamos Agios Savvas — €16.00",
+description: "Bottle 750ml - Medium Sweet"
+},
+
+{
+name: "Kalamos Agios Savvas — €5.00",
+description: "Bottle 187ml - Medium Sweet"
+},
+
+{
+name: "Kalamos — €16.00",
+description: "Bottle 750ml - Dry"
+},
+
+{
+name: "Agiorgitiko — €22.00",
+description: "Bottle 750ml - Dry"
+},
+
+{
+name: "Agiorgitiko — €5.00",
+description: "Bottle 187ml - Dry"
+}
+
+]
+
+},
+
+
 
 "Shisha": [
-{name: "Shisha — €20.00",description: "Please ask about the available flavours."}
-],
+
+{
+name: "Shisha — €20.00",
+description: "Please ask about the available flavours."
+}
+
+]
 
 };
 
-let currentMenuType = "food"; // Remembers whether the visitor is currently browsing food or drinks.
-let currentDrinkCategory = null; // Remembers Beers or Wines while a visitor browses its subcategories.
-
-function showCategories(type) { // Runs after a visitor presses Food or Drinks; type contains that choice.
-currentMenuType = type; // Saves the visitor's choice for use on the next screen.
-currentDrinkCategory = null; // Clears an older beer/wine selection whenever Drinks is reopened.
-document.getElementById("mainMenu").classList.add("hidden"); // Finds and hides the first screen.
-document.getElementById("categoryMenu").classList.remove("hidden"); // Finds and shows the category screen.
-
-const foodButtons = document.getElementById("originalFoodButtons"); // Saves a reference to the food buttons.
-const drinkButtons = document.getElementById("drinkCategoryButtons"); // Saves a reference to the drinks button box.
-foodButtons.classList.toggle("hidden", type !== "food"); // Hides food categories unless Food was selected.
-drinkButtons.classList.toggle("hidden", type !== "drinks"); // Hides drink categories unless Drinks was selected.
-
-if (type === "drinks") { // Only performs the following work when Drinks was chosen.
-createDrinkCategoryButtons(drinksMenu); // Creates the top-level drinks buttons.
-}
-}
-
-function createDrinkCategoryButtons(categories) { // Creates buttons from any supplied category collection.
-const drinkButtons = document.getElementById("drinkCategoryButtons"); // Finds the drink-button area.
-drinkButtons.innerHTML = ""; // Clears old buttons so levels do not mix.
-Object.keys(categories).forEach(category => { // Repeats once for every supplied category name.
-const button = document.createElement("button"); // Creates a new button in memory.
-button.textContent = category; // Writes the category name on that new button.
-button.onclick = () => selectCategory(category); // Makes the button open its category when pressed.
-drinkButtons.appendChild(button); // Places the finished button on the visible webpage.
-});
-}
-
-function goBackFromCategories() { // Controls Back while browsing drink-category levels.
-if (currentMenuType === "drinks" && currentDrinkCategory !== null) { // Checks whether the visitor is inside Beers or Wines.
-currentDrinkCategory = null; // Forgets the selected parent category.
-createDrinkCategoryButtons(drinksMenu); // Shows the main drink categories again.
-return; // Stops here instead of returning to the Food/Drinks screen.
-}
-goBackToMain(); // If there is no subcategory level, returns to Food/Drinks.
-}
-
-function goBackToMain() { // Runs when the Back button on the category screen is pressed.
-document.getElementById("categoryMenu").classList.add("hidden"); // Hides the category screen.
-document.getElementById("mainMenu").classList.remove("hidden"); // Shows the Food/Drinks screen again.
-}
 
 
-// =========================
-// SELECT CATEGORY
-// =========================
+// =====================================================
+// FOOD CATEGORY TRANSLATIONS
+// =====================================================
+
+const foodCategoryTranslations = {
+
+"Starter": "Ορεκτικά",
+
+"Platters": "Πιατέλες",
+
+"Salads": "Σαλάτες",
+
+"Sandwiches": "Σάντουιτς",
+
+"Burgers": "Μπιφτέκια",
+
+"Pizza": "Πίτσα",
+
+"Main Dishes": "Κυρίως Πιάτα",
+
+"Pasta": "Ζυμαρικά",
+
+"Kids Corner": "Παιδικό Μενού",
+
+"Breakfast": "Πρωινό μέχρι τις 16:00",
+
+"Omelet": "Ομελέτες",
+
+"Desserts": "Επιδόρπια"
+
+};
+
+
+
+// =====================================================
+// DRINK CATEGORY TRANSLATIONS
+// =====================================================
+
+const drinkCategoryTranslations = {
+
+"Cocktails": "Κοκτέιλ",
+
+"Non-Alcoholic Cocktails": "Μη Αλκοολούχα Κοκτέιλ",
+
+"Beers": "Μπύρες",
+
+"Soft Drinks": "Αναψυκτικά",
+
+"Juices": "Χυμοί",
+
+"Cold Beverages": "Κρύα Ροφήματα",
+
+"Cold Coffee": "Κρύοι Καφέδες",
+
+"Hot Beverages": "Ζεστά Ροφήματα",
+
+"Shots": "Σφηνάκια",
+
+"Spirits": "Ποτά",
+
+"Liquers": "Λικέρ",
+
+"Wines": "Κρασιά",
+
+"Shisha": "Ναργιλές",
+
+"Draught": "Βαρελίσιες",
+
+"Bottled": "Μπουκάλια",
+
+"Whisky": "Ουίσκι",
+
+"Vodka": "Βότκα",
+
+"Gin": "Τζιν",
+
+"Rum": "Ρούμι",
+
+"Tequila": "Τεκίλα",
+
+"Brandy": "Μπράντι",
+
+"Cognacs": "Κονιάκ",
+
+"White": "Λευκά",
+
+"Rosé": "Ροζέ",
+
+"Red": "Κόκκινα"
+
+};
+
+
+
+// =====================================================
+// CATEGORY NOTES
+// =====================================================
 
 const categoryNotes = {
-  "Cocktails": "All cocktails — €7.00",
-  "Non-Alcoholic Cocktails": "All Non-Alcoholics cocktails — €5.00",
-  "Bottled":"All bottles 330ml — €5.00",
-  "Soft Drinks": "250ml — €3.00  , 500ml — €5.00",
-  "Juices": "250ml — €3.00  , 500ml — €5.00",
-  "Whisky": "MIXER + €1.00",
-  "Vodka": "MIXER + €1.00",
-  "Gin": "MIXER + €1.00",
-  "Rum": "MIXER + €1.00",
-  "Tequila":"MIXER + €1.00",
-  "Brandies":"MIXER + €1.00",
-  "Cognacs":"MIXER + €1.00",
-  "Liquers":"MIXER + €1.00"
+
+"Cocktails":
+"All cocktails — €7.00",
+
+"Non-Alcoholic Cocktails":
+"All non-alcoholic cocktails — €5.00",
+
+"Bottled":
+"All bottles 330ml — €5.00",
+
+"Soft Drinks":
+"250ml — €3.00 | 500ml — €5.00",
+
+"Juices":
+"250ml — €3.00 | 500ml — €5.00",
+
+"Whisky":
+"MIXER + €1.00",
+
+"Vodka":
+"MIXER + €1.00",
+
+"Gin":
+"MIXER + €1.00",
+
+"Rum":
+"MIXER + €1.00",
+
+"Tequila":
+"MIXER + €1.00",
+
+"Brandy":
+"MIXER + €1.00",
+
+"Cognacs":
+"MIXER + €1.00",
+
+"Liquers":
+"MIXER + €1.00"
+
 };
 
-function selectCategory(category) { // Receives the name of the category the visitor pressed.
 
-if (currentMenuType === "drinks" && currentDrinkCategory === null && !Array.isArray(drinksMenu[category])) { // Detects a category containing subcategories.
-currentDrinkCategory = category; // Remembers Beers or Wines.
-createDrinkCategoryButtons(drinksMenu[category]); // Shows its subcategory buttons.
-return; // Stops before trying to show products.
+
+const categoryNotesGreek = {
+
+"Cocktails":
+"Όλα τα κοκτέιλ — €7.00",
+
+"Non-Alcoholic Cocktails":
+"Όλα τα μη αλκοολούχα κοκτέιλ — €5.00",
+
+"Bottled":
+"Όλα τα μπουκάλια 330ml — €5.00",
+
+"Soft Drinks":
+"250ml — €3.00 | 500ml — €5.00",
+
+"Juices":
+"250ml — €3.00 | 500ml — €5.00",
+
+"Whisky":
+"Αναμεικτικό + €1.00",
+
+"Vodka":
+"Αναμεικτικό + €1.00",
+
+"Gin":
+"Αναμεικτικό + €1.00",
+
+"Rum":
+"Αναμεικτικό + €1.00",
+
+"Tequila":
+"Αναμεικτικό + €1.00",
+
+"Brandy":
+"Αναμεικτικό + €1.00",
+
+"Cognacs":
+"Αναμεικτικό + €1.00",
+
+"Liquers":
+"Αναμεικτικό + €1.00"
+
+};
+
+
+
+// =====================================================
+// CHOOSE LANGUAGE
+// =====================================================
+
+function chooseLanguage(language) {
+
+    currentLanguage = language;
+
+
+    document
+    .getElementById("languageMenu")
+    .classList.add("hidden");
+
+
+    document
+    .getElementById("mainMenu")
+    .classList.remove("hidden");
+
+
+    if (language === "gr") {
+
+        document.documentElement.lang = "el";
+
+
+        document
+        .getElementById("foodMainButton")
+        .textContent = "Φαγητό";
+
+
+        document
+        .getElementById("drinksMainButton")
+        .textContent = "Ποτά";
+
+
+        document
+        .getElementById("languageBackButton")
+        .textContent = "← Γλώσσα";
+
+
+        document
+        .getElementById("categoryBackButton")
+        .textContent = "← Πίσω";
+
+
+        document
+        .getElementById("itemBackButton")
+        .textContent = "← Πίσω";
+
+    }
+
+    else {
+
+        document.documentElement.lang = "en";
+
+
+        document
+        .getElementById("foodMainButton")
+        .textContent = "Food";
+
+
+        document
+        .getElementById("drinksMainButton")
+        .textContent = "Drinks";
+
+
+        document
+        .getElementById("languageBackButton")
+        .textContent = "← Language";
+
+
+        document
+        .getElementById("categoryBackButton")
+        .textContent = "← Back";
+
+
+        document
+        .getElementById("itemBackButton")
+        .textContent = "← Back";
+
+    }
+
 }
 
-document.getElementById("categoryMenu") // Finds the category screen...
-.classList.add("hidden"); // ...and hides it.
-
-document.getElementById("foodMenu") // Finds the item-list screen...
-.classList.remove("hidden"); // ...and shows it.
-
-document.getElementById("selectedCategory") // Finds the empty heading on the item-list screen...
-.textContent = category; // ...and writes the selected category name into it.
-
-document.getElementById("categoryNote")
-.textContent = categoryNotes[category] || "";
-
-createFoodItems(category); // Calls the function that creates all item cards for this category.
-}
 
 
-// =========================
-// CREATE FOOD ITEMS
-// =========================
+// =====================================================
+// BACK TO LANGUAGE SCREEN
+// =====================================================
 
-function createFoodItems(category) { // Builds the visible cards for one selected category.
+function goBackToLanguage() {
 
-const container = // Creates a short name for...
-document.getElementById("foodButtons"); // ...the box that will receive all item cards.
+    document
+    .getElementById("mainMenu")
+    .classList.add("hidden");
 
-container.innerHTML = ""; // Removes cards from the previously visited category.
 
-// Food and Drinks both use one column.
-container.className = currentMenuType === "food"
-? "food-grid food-one-column"
-: "food-grid drinks-one-column";
+    document
+    .getElementById("categoryMenu")
+    .classList.add("hidden");
 
-const selectedItems = currentMenuType === "food" // Starts choosing the correct list of products.
-? foodMenu[category] // Uses a food category if Food is active.
-: currentDrinkCategory === null // Otherwise checks if this is a top-level drink category.
-? drinksMenu[category] // Uses its direct list, for example Cocktails.
-: drinksMenu[currentDrinkCategory][category]; // Or uses a nested list, for example Beers then Draught.
 
-selectedItems.forEach(food => { // Repeats the following commands for every item in the chosen list.
+    document
+    .getElementById("foodMenu")
+    .classList.add("hidden");
 
-const item = document.createElement("div"); // Creates one new card.
 
-item.className = "food-item"; // Applies the .food-item appearance defined in CSS.
-
-// Creates an image only when the item has an image property.
-// encodeURI helps image addresses containing spaces work correctly.
-const imageHtml = food.image
-? `<img class="food-image" src="${encodeURI(food.image)}" alt="${food.name}">`
-: "";
-
-item.innerHTML = `
-
-${imageHtml}
-
-<div class="food-name">
-${food.name}
-</div>
-
-<div class="food-description">
-${food.description}
-</div>
-
-`;
-
-container.appendChild(item); // Adds the completed card to the visible grid.
-
-});
+    document
+    .getElementById("languageMenu")
+    .classList.remove("hidden");
 
 }
 
 
-// =========================
-// BACK TO CATEGORIES
-// =========================
 
-function goBackToCategories() { // Runs when Back is pressed on an item-list screen.
+// =====================================================
+// SHOW FOOD OR DRINK CATEGORIES
+// =====================================================
 
-document.getElementById("foodMenu") // Finds the item-list screen...
-.classList.add("hidden"); // ...and hides it.
+function showCategories(type) {
 
-document.getElementById("categoryMenu") // Finds the category screen...
-.classList.remove("hidden"); // ...and shows it again.
+    currentMenuType = type;
+
+    currentDrinkCategory = null;
+
+
+    document
+    .getElementById("mainMenu")
+    .classList.add("hidden");
+
+
+    document
+    .getElementById("categoryMenu")
+    .classList.remove("hidden");
+
+
+    const foodButtons =
+    document.getElementById("originalFoodButtons");
+
+
+    const drinkButtons =
+    document.getElementById("drinkCategoryButtons");
+
+
+    foodButtons.classList.toggle(
+        "hidden",
+        type !== "food"
+    );
+
+
+    drinkButtons.classList.toggle(
+        "hidden",
+        type !== "drinks"
+    );
+
+
+    if (type === "food") {
+
+        createFoodCategoryButtons();
+
+    }
+
+
+    if (type === "drinks") {
+
+        createDrinkCategoryButtons(drinksMenu);
+
+    }
 
 }
+
+
+
+// =====================================================
+// CREATE FOOD CATEGORY BUTTONS
+// =====================================================
+
+function createFoodCategoryButtons() {
+
+    const foodButtons =
+    document.getElementById("originalFoodButtons");
+
+
+    foodButtons.innerHTML = "";
+
+
+    Object.keys(foodMenu).forEach(category => {
+
+
+        const button =
+        document.createElement("button");
+
+
+        if (currentLanguage === "gr") {
+
+            button.textContent =
+            foodCategoryTranslations[category] || category;
+
+        }
+
+        else {
+
+            if (category === "Breakfast") {
+
+                button.textContent =
+                "Breakfast until 16:00";
+
+            }
+
+            else {
+
+                button.textContent =
+                category;
+
+            }
+
+        }
+
+
+        button.onclick =
+        () => selectCategory(category);
+
+
+        foodButtons.appendChild(button);
+
+    });
+
+}
+
+
+
+// =====================================================
+// CREATE DRINK CATEGORY BUTTONS
+// =====================================================
+
+function createDrinkCategoryButtons(categories) {
+
+    const drinkButtons =
+    document.getElementById("drinkCategoryButtons");
+
+
+    drinkButtons.innerHTML = "";
+
+
+    Object.keys(categories).forEach(category => {
+
+
+        const button =
+        document.createElement("button");
+
+
+        if (currentLanguage === "gr") {
+
+            button.textContent =
+            drinkCategoryTranslations[category] || category;
+
+        }
+
+        else {
+
+            button.textContent = category;
+
+        }
+
+
+        button.onclick =
+        () => selectCategory(category);
+
+
+        drinkButtons.appendChild(button);
+
+    });
+
+}
+
+
+
+// =====================================================
+// SELECT CATEGORY
+// =====================================================
+
+function selectCategory(category) {
+
+
+    /*
+    If the visitor clicks:
+    Beers
+    Spirits
+    Wines
+
+    show another category level first.
+    */
+
+    if (
+        currentMenuType === "drinks" &&
+        currentDrinkCategory === null &&
+        !Array.isArray(drinksMenu[category])
+    ) {
+
+        currentDrinkCategory = category;
+
+
+        createDrinkCategoryButtons(
+            drinksMenu[category]
+        );
+
+
+        return;
+
+    }
+
+
+    document
+    .getElementById("categoryMenu")
+    .classList.add("hidden");
+
+
+    document
+    .getElementById("foodMenu")
+    .classList.remove("hidden");
+
+
+    let displayedCategory = category;
+
+
+    if (currentLanguage === "gr") {
+
+        if (currentMenuType === "food") {
+
+            displayedCategory =
+            foodCategoryTranslations[category] || category;
+
+        }
+
+        else {
+
+            displayedCategory =
+            drinkCategoryTranslations[category] || category;
+
+        }
+
+    }
+
+
+    document
+    .getElementById("selectedCategory")
+    .textContent = displayedCategory;
+
+
+
+    const note =
+    currentLanguage === "gr"
+    ? categoryNotesGreek[category]
+    : categoryNotes[category];
+
+
+    document
+    .getElementById("categoryNote")
+    .textContent = note || "";
+
+
+    createFoodItems(category);
+
+}
+
+
+
+// =====================================================
+// CREATE FOOD / DRINK CARDS
+// =====================================================
+
+function createFoodItems(category) {
+
+
+    const container =
+    document.getElementById("foodButtons");
+
+
+    container.innerHTML = "";
+
+
+    container.className =
+    currentMenuType === "food"
+    ? "food-grid food-one-column"
+    : "food-grid drinks-one-column";
+
+
+    let selectedItems;
+
+
+
+    if (currentMenuType === "food") {
+
+
+        if (currentLanguage === "gr") {
+
+            selectedItems =
+            foodMenuGreek[category];
+
+        }
+
+        else {
+
+            selectedItems =
+            foodMenu[category];
+
+        }
+
+    }
+
+
+    else {
+
+
+        if (currentDrinkCategory === null) {
+
+            selectedItems =
+            drinksMenu[category];
+
+        }
+
+        else {
+
+            selectedItems =
+            drinksMenu[currentDrinkCategory][category];
+
+        }
+
+    }
+
+
+
+    if (!selectedItems) {
+
+        container.innerHTML =
+        "<p>Menu items could not be loaded.</p>";
+
+        return;
+
+    }
+
+
+
+    selectedItems.forEach(food => {
+
+
+        const item =
+        document.createElement("div");
+
+
+        item.className =
+        "food-item";
+
+
+        const imageHtml =
+        food.image
+        ? `
+
+        <img
+        class="food-image"
+        src="${food.image}"
+        alt="${food.name}">
+
+        `
+        : "";
+
+
+        item.innerHTML = `
+
+        ${imageHtml}
+
+        <div class="food-name">
+
+            ${food.name}
+
+        </div>
+
+
+        <div class="food-description">
+
+            ${food.description}
+
+        </div>
+
+        `;
+
+
+        container.appendChild(item);
+
+    });
+
+}
+
+
+
+// =====================================================
+// BACK FROM ITEM SCREEN
+// =====================================================
+
+function goBackToCategories() {
+
+
+    document
+    .getElementById("foodMenu")
+    .classList.add("hidden");
+
+
+    document
+    .getElementById("categoryMenu")
+    .classList.remove("hidden");
+
+}
+
+
+
+// =====================================================
+// BACK FROM CATEGORY SCREEN
+// =====================================================
+
+function goBackFromCategories() {
+
+
+    /*
+    If inside Beers / Spirits / Wines,
+    return to the main Drinks categories.
+    */
+
+    if (
+        currentMenuType === "drinks" &&
+        currentDrinkCategory !== null
+    ) {
+
+
+        currentDrinkCategory = null;
+
+
+        createDrinkCategoryButtons(drinksMenu);
+
+
+        return;
+
+    }
+
+
+    document
+    .getElementById("categoryMenu")
+    .classList.add("hidden");
+
+
+    document
+    .getElementById("mainMenu")
+    .classList.remove("hidden");
+
+}
+
 
 </script>
 
+
 </body>
+
 </html>
