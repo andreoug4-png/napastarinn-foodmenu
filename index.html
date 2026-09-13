@@ -1,1594 +1,4066 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
+
+
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
->
 
-<meta name="theme-color" content="#2b1205">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Napa Star Inn Sports Schedule</title>
+
+<title>Napa Star Inn</title>
+
+
+
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<link
+href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap"
+rel="stylesheet">
+
+
+
 
 <style>
 
-:root {
-    --bg-dark: #170901;
-    --bg-brown: #2b1205;
-    --bg-brown-light: #4a2208;
 
-    --gold: #f2c149;
-    --gold-light: #fff1a8;
-
-    --red: #d61d1d;
-    --red-dark: #9f0f0f;
-
-    --white: #f5f5f5;
-    --muted: #e3d9ce;
-}
-
-
-/* =====================================
-   GENERAL
-   ===================================== */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-
-html {
-    -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth;
-}
+/* =========================
+WHOLE PAGE
+========================= */
 
 
 body {
 
-    font-family: Arial, Helvetica, sans-serif;
 
-    min-height: 100svh;
+    font-family: "Roboto Slab", Georgia, serif;
 
-    color: var(--white);
 
-    padding:
-        max(14px, env(safe-area-inset-top))
-        max(12px, env(safe-area-inset-right))
-        max(18px, env(safe-area-inset-bottom))
-        max(12px, env(safe-area-inset-left));
+    background: #5C4033;
 
-    background:
 
-        linear-gradient(
-            rgba(15, 6, 1, 0.74),
-            rgba(15, 6, 1, 0.86)
-        ),
+    margin: 0;
 
-        radial-gradient(
-            circle at center top,
-            rgba(255, 194, 57, 0.12),
-            transparent 40%
-        ),
 
-        linear-gradient(
-            180deg,
-            #5b2a08 0%,
-            #341705 42%,
-            #1b0b02 100%
-        );
+    padding: 30px 20px;
 
-    background-attachment: fixed;
+
+    text-align: center;
+
+
 }
 
 
-button {
 
-    font: inherit;
 
-    -webkit-tap-highlight-color: transparent;
-
-    touch-action: manipulation;
-}
+/* =========================
+MAIN CONTAINER
+========================= */
 
 
 .container {
 
-    width: min(100%, 850px);
 
-    margin: 0 auto;
+    max-width: 500px;
+
+
+    margin: auto;
+
+
+    background: #A07858;
+
+
+    padding: 30px;
+
+
+    border-radius: 15px;
+
+
+    box-shadow: 0 5px 18px rgba(0,0,0,0.25);
+
+
 }
 
 
-.panel {
-
-    background: rgba(30, 12, 4, 0.68);
-
-    border:
-        1px solid rgba(242, 193, 73, 0.28);
-
-    border-radius: 24px;
-
-    box-shadow:
-        0 16px 36px rgba(0, 0, 0, 0.42),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-
-    backdrop-filter: blur(4px);
-}
 
 
-
-/* =====================================
-   HOME PAGE
-   ===================================== */
-
-#daySelection {
-
-    padding: clamp(22px, 5vw, 40px);
-
-    text-align: center;
-}
+/* =========================
+LOGO
+========================= */
 
 
 .logo {
 
-    margin: 0 auto 18px;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
+    width: 300px;
 
 
-.logo img {
+    max-width: 100%;
+
 
     display: block;
 
-    width: min(100%, 420px);
 
-    height: auto;
+    margin: auto;
 
-    max-height: 180px;
 
-    object-fit: contain;
-
-    filter:
-        drop-shadow(
-            0 8px 18px rgba(0, 0, 0, 0.45)
-        );
 }
 
 
-.schedule-title {
 
-    font-size: clamp(28px, 8vw, 42px);
 
-    line-height: 1.05;
+/* =========================
+HEADINGS
+========================= */
 
-    font-weight: 900;
 
-    text-transform: uppercase;
+h1 {
 
-    letter-spacing: 1.5px;
 
-    color: #efefef;
+    font-family: "Roboto Condensed", sans-serif;
 
-    text-shadow:
-        0 3px 10px rgba(0, 0, 0, 0.45),
-        1px 1px 0 #111;
+
+    font-weight: 700;
+
+
+    margin-top: 0;
+
 
     margin-bottom: 10px;
-}
 
-
-.subtitle {
-
-    font-size: clamp(13px, 3.5vw, 15px);
-
-    line-height: 1.45;
-
-    color: var(--muted);
-
-    margin: 0 auto 18px;
-
-    max-width: 520px;
-}
-
-
-.gold-line {
-
-    width: 100%;
-
-    height: 3px;
-
-    margin: 16px 0 22px;
-
-    border-radius: 999px;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255, 194, 57, 0),
-            var(--gold),
-            var(--gold-light),
-            var(--gold),
-            rgba(255, 194, 57, 0)
-        );
-
-    box-shadow:
-        0 0 14px rgba(255, 193, 73, 0.5);
-}
-
-
-.select-title {
-
-    text-align: center;
-
-    font-size: 14px;
-
-    color: var(--gold);
-
-    letter-spacing: 1px;
-
-    margin-bottom: 16px;
-
-    text-transform: uppercase;
-
-    font-weight: 800;
-}
-
-
-.days {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 12px;
-}
-
-
-.day-button {
-
-    min-height: 58px;
-
-    border:
-        1px solid rgba(242, 193, 73, 0.35);
-
-    border-radius: 15px;
-
-    padding: 15px 14px;
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--bg-brown-light),
-            var(--bg-brown)
-        );
-
-    color: var(--white);
-
-    font-size: 16px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.45px;
-
-    transition:
-        transform 0.18s ease,
-        background 0.18s ease,
-        box-shadow 0.18s ease;
-
-    box-shadow:
-        0 7px 16px rgba(0, 0, 0, 0.30),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-
-.day-button:hover,
-.day-button:focus-visible {
-
-    transform: translateY(-2px);
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--red),
-            var(--red-dark)
-        );
-
-    border-color: var(--gold);
-
-    outline: none;
-}
-
-
-
-/* =====================================
-   DAY PAGE
-   ===================================== */
-
-#dayPage {
-
-    display: none;
-}
-
-
-.day-header {
-
-    padding:
-        clamp(20px, 5vw, 28px)
-        18px
-        18px;
-
-    text-align: center;
-
-    margin-bottom: 16px;
-}
-
-
-.day-header h1 {
-
-    font-size: clamp(28px, 8vw, 38px);
-
-    line-height: 1.05;
-
-    font-weight: 900;
-
-    letter-spacing: 1.5px;
-
-    color: #efefef;
-
-    text-transform: uppercase;
-
-    text-shadow:
-        0 3px 10px rgba(0, 0, 0, 0.45),
-        1px 1px 0 #111;
-}
-
-
-.day-header .gold-line {
-
-    margin: 12px 0 0;
-}
-
-
-#events {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 14px;
-}
-
-
-
-/* =====================================
-   DEFAULT LEAGUE BOX
-   ===================================== */
-
-.event {
-
-    position: relative;
-
-    background:
-        rgba(46, 19, 7, 0.9);
-
-    border:
-        1px solid rgba(242, 193, 73, 0.24);
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 10px 24px rgba(0, 0, 0, 0.34),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-
-.league {
-
-    position: relative;
-
-    z-index: 2;
-
-    text-align: center;
-
-    padding: 13px 14px;
-
-    font-size: clamp(17px, 5vw, 22px);
-
-    font-weight: 900;
-
-    color: var(--gold);
-
-    text-transform: uppercase;
 
     letter-spacing: 0.8px;
 
-    background:
-        rgba(0, 0, 0, 0.14);
 
-    border-bottom:
-        1px solid rgba(242, 193, 73, 0.18);
-
-    text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.35);
-}
-
-
-.match {
-
-    position: relative;
-
-    z-index: 2;
-
-    padding: 14px 14px 16px;
-
-    text-align: center;
 }
 
 
 
-/* =====================================
-   MATCH ROW
-   TEAMS PERFECTLY CENTRED
-   ===================================== */
 
-.match-row {
-
-    position: relative;
-
-    display: grid;
-
-    /*
-       Only the two teams + VS are part
-       of the main centred grid.
-
-       LIVE and TIME are positioned
-       separately on the right.
-    */
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        34px
-        minmax(0, 1fr);
-
-    align-items: center;
-
-    column-gap: 8px;
-
-    width: 100%;
-
-    /*
-       Equal empty space on BOTH sides
-       keeps the match perfectly centred.
-    */
-
-    padding: 10px 115px;
-}
+h2 {
 
 
-.match-row + .match-row {
+    font-family: "Roboto Condensed", sans-serif;
 
-    border-top:
-        1px solid rgba(255, 255, 255, 0.10);
+
+    font-weight: 700;
+
+
+    color: #2F2018;
+
+
+    letter-spacing: 0.8px;
+
+
+    font-size: 25px;
+
+
 }
 
 
 
-/* =====================================
-   TEAM NAMES
-   ===================================== */
 
-.home-team,
-.away-team {
-
-    min-width: 0;
-
-    font-size:
-        clamp(14px, 3.8vw, 20px);
-
-    font-weight: 900;
-
-    color: #f0f0f0;
-
-    text-transform: uppercase;
-
-    text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.48);
-
-    line-height: 1.12;
-}
+/* =========================
+MENU BUTTON LAYOUT
+========================= */
 
 
-.home-team {
-
-    text-align: right;
-}
+.menu {
 
 
-.away-team {
-
-    text-align: left;
-}
+    display: flex;
 
 
-.vs {
+    flex-direction: column;
 
-    text-align: center;
 
-    font-size: 12px;
+    gap: 12px;
 
-    color: var(--gold);
 
-    font-weight: 900;
+    margin-top: 20px;
+
+
 }
 
 
 
-/* =====================================
-   LIVE BADGE
-   ===================================== */
 
-.live-badge {
+/* =========================
+BUTTONS
+========================= */
 
-    position: absolute;
 
-    right: 62px;
+button {
 
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-height: 38px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ff3131,
-            #c91010
-        );
-
-    color: #ffffff;
-
-    padding: 7px 13px;
-
-    border-radius: 10px;
-
-    font-size: 14px;
-
-    font-weight: 900;
-
-    text-transform: uppercase;
-
-    white-space: nowrap;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.18),
-        0 6px 16px rgba(0, 0, 0, 0.28);
-}
-
-
-
-/* =====================================
-   TIME
-   ===================================== */
-
-.time {
-
-    position: absolute;
-
-    right: 5px;
-
-    width: 52px;
-
-    text-align: center;
-
-    font-size: 18px;
-
-    font-weight: 900;
-
-    color: #ffffff;
-
-    letter-spacing: 0.3px;
-
-    white-space: nowrap;
-
-    text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.45);
-}
-
-
-
-/* =====================================
-   CHAMPIONS LEAGUE
-   ===================================== */
-
-.champions-box {
-
-    background-image:
-        url(
-        "https://i.ibb.co/cdzTt0b/IMG-1824.jpg"
-        );
-
-    background-size: cover;
-
-    background-position: center center;
-
-    background-repeat: no-repeat;
-
-    border:
-        1px solid rgba(242, 193, 73, 0.42);
-}
-
-
-.champions-box::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(3, 13, 57, 0.56),
-            rgba(1, 10, 45, 0.72)
-        );
-
-    z-index: 1;
-
-    pointer-events: none;
-}
-
-
-.champions-box .league {
-
-    background:
-        rgba(0, 14, 71, 0.38);
-
-    border-bottom:
-        1px solid rgba(242, 193, 73, 0.32);
-
-    color: #ffd85f;
-}
-
-
-.champions-box .match {
-
-    background: transparent;
-}
-
-
-.champions-box
-.match-row + .match-row {
-
-    border-top:
-        1px solid rgba(255, 255, 255, 0.15);
-}
-
-
-
-/* =====================================
-   EUROPA LEAGUE
-   ===================================== */
-
-.europa-box {
-
-    background-image:
-        url(
-        "https://i.ibb.co/xKgWXrPb/IMG-1828.png"
-        );
-
-    background-size: cover;
-
-    background-position: center center;
-
-    background-repeat: no-repeat;
-
-    border:
-        1px solid rgba(242, 193, 73, 0.42);
-}
-
-
-.europa-box::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(85, 35, 5, 0.58),
-            rgba(45, 17, 2, 0.76)
-        );
-
-    z-index: 1;
-
-    pointer-events: none;
-}
-
-
-.europa-box .league {
-
-    background:
-        rgba(70, 25, 0, 0.38);
-
-    border-bottom:
-        1px solid rgba(242, 193, 73, 0.32);
-
-    color: #ffd85f;
-}
-
-
-.europa-box .match {
-
-    background: transparent;
-}
-
-
-.europa-box
-.match-row + .match-row {
-
-    border-top:
-        1px solid rgba(255, 255, 255, 0.15);
-}
-
-
-
-/* =====================================
-   CONFERENCE LEAGUE
-   ===================================== */
-
-.conference-box {
-
-    background-image:
-        url(
-        "https://i.ibb.co/TB4WX6x8/IMG-1829.jpg"
-        );
-
-    background-size: cover;
-
-    background-position: center center;
-
-    background-repeat: no-repeat;
-
-    border:
-        1px solid rgba(242, 193, 73, 0.42);
-}
-
-
-.conference-box::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(5, 55, 35, 0.58),
-            rgba(2, 25, 17, 0.76)
-        );
-
-    z-index: 1;
-
-    pointer-events: none;
-}
-
-
-.conference-box .league {
-
-    background:
-        rgba(0, 55, 35, 0.38);
-
-    border-bottom:
-        1px solid rgba(242, 193, 73, 0.32);
-
-    color: #ffd85f;
-}
-
-
-.conference-box .match {
-
-    background: transparent;
-}
-
-
-.conference-box
-.match-row + .match-row {
-
-    border-top:
-        1px solid rgba(255, 255, 255, 0.15);
-}
-
-
-
-/* =====================================
-   EMPTY DAY MESSAGE
-   ===================================== */
-
-.no-events {
-
-    display: none;
-
-    padding: 26px 18px;
-
-    text-align: center;
-
-    line-height: 1.45;
-
-    color: #f2e6d5;
-
-    background:
-        rgba(46, 19, 7, 0.9);
-
-    border:
-        1px solid rgba(242, 193, 73, 0.24);
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 10px 24px rgba(0, 0, 0, 0.34);
-}
-
-
-.no-events strong {
-
-    color: var(--gold);
-}
-
-
-
-/* =====================================
-   BACK BUTTON
-   ===================================== */
-
-.back-button {
-
-    width: 100%;
-
-    min-height: 56px;
-
-    margin-top: 18px;
 
     padding: 15px;
 
-    border:
-        1px solid rgba(242, 193, 73, 0.35);
 
-    border-radius: 14px;
+    font-size: 20px;
 
-    background:
-        linear-gradient(
-            180deg,
-            var(--bg-brown-light),
-            var(--bg-brown)
-        );
 
-    color: #ffffff;
+    font-family: "Roboto Condensed", sans-serif;
 
-    font-size: 16px;
 
-    font-weight: 800;
+    font-weight: 700;
+
+
+    letter-spacing: 0.6px;
+
+
+    border: none;
+
+
+    border-radius: 10px;
+
+
+    background: #5C4033;
+
+
+    color: #F2F2F2;
+
 
     cursor: pointer;
 
-    transition: 0.18s ease;
 
-    text-transform: uppercase;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
 
-    letter-spacing: 0.4px;
-}
 
-
-.back-button:hover,
-.back-button:focus-visible {
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--red),
-            var(--red-dark)
-        );
-
-    color: #f8e29b;
-
-    border-color: var(--gold);
-
-    outline: none;
 }
 
 
 
-/* =====================================
-   PHONE OPTIMISATION
-   ===================================== */
 
-@media (max-width: 640px) {
+button:hover {
+
+
+    background: #F2C14E;
+
+
+    color: #2C1B14;
+
+
+    transform: translateY(-2px);
+
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+
+
+}
+
+
+
+
+/* =========================
+LINK BUTTONS
+========================= */
+
+
+.link-button {
+
+
+    display: block;
+
+
+    padding: 15px;
+
+
+    font-size: 20px;
+
+
+    font-family: "Roboto Condensed", sans-serif;
+
+
+    font-weight: 700;
+
+
+    letter-spacing: 0.6px;
+
+
+    border: none;
+
+
+    border-radius: 10px;
+
+
+    background: #5C4033;
+
+
+    color: #F2F2F2;
+
+
+    cursor: pointer;
+
+
+    text-decoration: none;
+
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+
+
+}
+
+
+
+
+.link-button:hover {
+
+
+    background: #F2C14E;
+
+
+    color: #2C1B14;
+
+
+    transform: translateY(-2px);
+
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+
+
+}
+
+
+
+
+/* =========================
+CONTACT DROP-DOWN
+========================= */
+
+
+.contact-dropdown {
+
+
+    margin-top: 10px;
+
+
+    padding: 14px 16px;
+
+
+    background: #5C4033;
+
+
+    color: #F2F2F2;
+
+
+    border-radius: 10px;
+
+
+    text-align: left;
+
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.16);
+
+
+}
+
+
+
+
+.contact-dropdown ul {
+
+
+    margin: 0;
+
+
+    padding-left: 22px;
+
+
+}
+
+
+
+
+.contact-dropdown li {
+
+
+    margin: 8px 0;
+
+
+    line-height: 1.4;
+
+
+}
+
+
+
+
+/* =========================
+BACK BUTTON
+========================= */
+
+
+.back {
+
+
+    background: #3B302B;
+
+
+    color: white;
+
+
+    margin-top: 25px;
+
+
+}
+
+
+
+
+.back:hover {
+
+
+    background: #F2C14E;
+
+
+    color: #2C1B14;
+
+
+}
+
+
+
+
+/* =========================
+HIDDEN SECTIONS
+========================= */
+
+
+.hidden {
+
+
+    display: none;
+
+
+}
+
+
+
+
+/* =========================
+CATEGORY NOTE
+========================= */
+
+
+.category-note {
+
+
+    font-family: "Roboto Slab", serif;
+
+
+    font-size: 15px;
+
+
+    font-weight: 500;
+
+
+    font-style: italic;
+
+
+    color: #2C1B14;
+
+
+    margin: 5px 0 20px;
+
+
+}
+
+
+
+
+/* =========================
+ITEM GRID
+========================= */
+
+
+.food-grid {
+
+
+    display: grid;
+
+
+    gap: 18px;
+
+
+    margin-top: 25px;
+
+
+}
+
+
+
+
+.food-one-column {
+
+
+    grid-template-columns: 1fr;
+
+
+}
+
+
+
+
+.drinks-one-column {
+
+
+    grid-template-columns: 1fr;
+
+
+}
+
+
+
+
+/* =========================
+ITEM CARD
+========================= */
+
+
+.food-item {
+
+
+    background-color: #5C4033;
+
+
+    padding: 14px;
+
+
+    border-radius: 10px;
+
+
+    color: #F2F2F2;
+
+
+    min-width: 0;
+
+
+    box-sizing: border-box;
+
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.16);
+
+
+}
+
+
+
+
+/* =========================
+FOOD / DRINK NAME
+========================= */
+
+
+.food-name {
+
+
+    font-family: "Roboto Condensed", sans-serif;
+
+
+    font-size: 21px;
+
+
+    font-weight: 700;
+
+
+    letter-spacing: 0.35px;
+
+
+    margin-bottom: 8px;
+
+
+    color: #F2C14E;
+
+
+}
+
+
+
+
+/* =========================
+DESCRIPTION
+========================= */
+
+
+.food-description {
+
+
+    font-family: "Roboto Slab", Georgia, serif;
+
+
+    font-size: 15px;
+
+
+    font-weight: 400;
+
+
+    line-height: 1.55;
+
+
+    color: #F2F2F2;
+
+
+}
+
+
+
+
+/* =========================
+FOOD IMAGE
+========================= */
+
+
+.food-image {
+
+
+    width: 100%;
+
+
+    max-height: 260px;
+
+
+    object-fit: cover;
+
+
+    border-radius: 8px;
+
+
+    margin-bottom: 12px;
+
+
+    display: block;
+
+
+}
+
+
+
+
+/* =========================
+MOBILE
+========================= */
+
+
+@media (max-width: 400px) {
+
 
     body {
 
-        background-attachment: scroll;
+
+        padding: 20px 12px;
+
+
     }
 
 
-    .panel {
 
-        border-radius: 20px;
+
+    .container {
+
+
+        padding: 20px;
+
+
     }
 
 
-    #daySelection {
 
-        padding: 24px 16px;
+
+    h2 {
+
+
+        font-size: 21px;
+
+
     }
 
 
-    .logo img {
 
-        width:
-            min(100%, 330px);
 
-        max-height: 150px;
+    button {
+
+
+        font-size: 18px;
+
+
     }
 
 
-    .days {
 
-        grid-template-columns: 1fr;
 
-        gap: 10px;
+    .link-button {
+
+
+        font-size: 18px;
+
+
     }
 
 
-    .day-button {
 
-        width: 100%;
 
-        font-size: 16px;
+    .food-name {
+
+
+        font-size: 18px;
+
+
     }
 
 
-    .event {
-
-        border-radius: 18px;
-    }
 
 
-    .match {
+    .food-description {
 
-        padding:
-            10px 7px 12px;
-    }
-
-
-    /*
-       CENTRED MOBILE MATCH
-    */
-
-    .match-row {
-
-        grid-template-columns:
-            minmax(0, 1fr)
-            20px
-            minmax(0, 1fr)
-            auto
-            auto;
-
-        column-gap: 7px;
-
-        padding: 10px 8px;
-    }
-
-
-    .home-team,
-    .away-team {
-
-        font-size: clamp(11px, 3.2vw, 15px);
-
-        white-space: normal;
-
-        overflow-wrap: anywhere;
-    }
-
-
-    .vs {
-
-        font-size: 9px;
-    }
-
-
-    .live-badge {
-
-        position: static;
-
-        right: auto;
-
-        min-height: 30px;
-
-        padding: 5px 7px;
-
-        border-radius: 8px;
-
-        font-size: 10px;
-    }
-
-
-    .time {
-
-        position: static;
-
-        right: auto;
-
-        width: auto;
-
-        min-width: 39px;
 
         font-size: 13px;
 
-        text-align: right;
+
     }
+
+
+
+
+    .food-grid {
+
+
+        gap: 12px;
+
+
+    }
+
+
 }
 
-
-
-/* =====================================
-   VERY SMALL PHONES
-   ===================================== */
-
-@media (max-width: 380px) {
-
-    body {
-
-        padding-left: 8px;
-
-        padding-right: 8px;
-    }
-
-
-    .match-row {
-
-        grid-template-columns:
-            minmax(0, 1fr)
-            17px
-            minmax(0, 1fr)
-            auto
-            auto;
-
-        column-gap: 4px;
-
-        padding: 9px 5px;
-    }
-
-
-    .home-team,
-    .away-team {
-
-        font-size: 10px;
-    }
-
-
-    .live-badge {
-
-        position: static;
-
-        right: auto;
-
-        min-height: 27px;
-
-        padding: 4px 5px;
-
-        font-size: 8.5px;
-    }
-
-
-    .time {
-
-        position: static;
-
-        right: auto;
-
-        width: auto;
-
-        min-width: 34px;
-
-        font-size: 10.5px;
-
-        text-align: right;
-    }
-}
 
 </style>
+
+
 </head>
+
+
 
 
 <body>
 
+
+
+
 <div class="container">
 
 
-<!-- =====================================
-     HOME PAGE
-     ===================================== -->
-
-<div id="daySelection" class="panel">
 
 
-    <div class="logo">
+<!-- =========================
+LANGUAGE
+========================= -->
+
+
+<div id="languageMenu">
+
+
+    <h1>
+
 
         <img
-            src="https://i.ibb.co/MDTvBjw5/Napastar-logo.png"
-            alt="Napa Star Inn Logo"
-        >
+        src="https://i.ibb.co/MDTvBjw5/Napastar-logo.png"
+        alt="Napa Star Inn Logo"
+        class="logo">
 
-    </div>
-
-
-    <h1 class="schedule-title">
-
-        LIVE Sports Schedule
 
     </h1>
 
 
-    <p class="subtitle">
-
-    </p>
 
 
-    <div class="gold-line"></div>
 
 
-    <div class="select-title">
-
-    </div>
 
 
-    <div class="days">
 
 
-        <button
-            class="day-button"
-            onclick="showDay('Monday')"
-        >
-            Monday 14/9
+    <div class="menu">
+
+
+        <button onclick="chooseLanguage('en')">
+            English
         </button>
 
 
-        <button
-            class="day-button"
-            onclick="showDay('Tuesday')"
-        >
-            Tuesday 15/9
-        </button>
-
-
-        <button
-            class="day-button"
-            onclick="showDay('Wednesday')"
-        >
-            Wednesday 16/9
-        </button>
-
-
-        <button
-            class="day-button"
-            onclick="showDay('Thursday')"
-        >
-            Thursday 17/9
-        </button>
-
-
-        <button
-            class="day-button"
-            onclick="showDay('Friday')"
-        >
-            Friday 18/9
-        </button>
-
-
-        <button
-            class="day-button"
-            onclick="showDay('Saturday')"
-        >
-            Saturday 19/9
-        </button>
-
-
-        <button
-            class="day-button"
-            onclick="showDay('Sunday')"
-        >
-            Sunday 13/9
+        <button onclick="chooseLanguage('gr')">
+            Ελληνικά
         </button>
 
 
     </div>
+
 
 </div>
 
 
 
-<!-- =====================================
-     DAY PAGE
-     ===================================== -->
-
-<div id="dayPage">
 
 
-    <div class="day-header panel">
 
-        <h1 id="dayTitle"></h1>
+<!-- =========================
+FOOD / DRINKS
+========================= -->
 
-        <div class="gold-line"></div>
+
+<div id="mainMenu" class="hidden">
+
+
+    <h1>
+
+
+        <img
+        src="https://i.ibb.co/MDTvBjw5/Napastar-logo.png"
+        alt="Napa Star Inn Logo"
+        class="logo">
+
+
+    </h1>
+
+
+
+
+    <div class="menu">
+
+
+        <button
+        id="foodMainButton"
+        onclick="showCategories('food')">
+
+
+            Food
+
+
+        </button>
+
+
+
+
+        <button
+        id="drinksMainButton"
+        onclick="showCategories('drinks')">
+
+
+            Drinks
+
+
+        </button>
+
+
+
+
+        <!--
+        Replace the URL below with your LIVE SPORTS website link.
+        Example:
+        href="https://example.com/live-sports"
+        -->
+        <a
+        id="sportsMainButton"
+        class="link-button"
+        href="https://andreoug4-png.github.io/napastar-livesports-schedule/"
+        target="_top">
+
+
+            Live Sports Schedule
+
+
+        </a>
+
+
+
+
+        <!--
+        Replace the URL below with your Google Maps location link.
+        Example:
+        href="https://maps.app.goo.gl/..."
+        -->
+        <a
+        id="locationMainButton"
+        class="link-button"
+        href="https://maps.app.goo.gl/Uk5jcxYPvo5Xx8VYA"
+        target="_top">
+
+
+            Location
+
+
+        </a>
+
+
+
+
+        <button
+        id="contactMainButton"
+        onclick="toggleContactList()">
+
+
+            Contact Us
+
+
+        </button>
+
+
+
+
+        <!--
+        CONTACT US SMALL LIST
+        Replace the three placeholder points below later
+        with your own contact details.
+        -->
+        <div
+        id="contactDropdown"
+        class="contact-dropdown hidden">
+
+
+            <ul>
+
+
+                <li id="contactPoint1">
+    TEL: +357 99639991<br>
+    <span style="margin-left: 38px;">+357 99684756</span>
+</li>
+
+
+                <li id="contactPoint2">
+                    Instagram: @napa_star_inn
+                </li>
+
+
+                <li id="contactPoint3">
+                    Facebook: NAPA STAR INN
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
 
     </div>
 
 
 
-    <div id="events">
-
-            <!-- =====================================
-             MONDAY 14/9
-             ===================================== -->    
-
-<div class="event monday-event">
-        
-        <div class="league">
-
-                PREMIER LEAGUE
-
-            </div>
-
-
-            <div class="match">
-
-
-                <div class="match-row">
-
-                    <div class="home-team">
-                        LEEDS
-                    </div>
-
-                    <div class="vs">
-                        VS
-                    </div>
-
-                    <div class="away-team">
-                        NEWCASTLE
-                    </div>
-
-                    <span class="live-badge">
-                        LIVE
-                    </span>
-
-                    <span class="time">
-                        22:00
-                    </span>
-
-                </div>
-        </div>
-
-</div>
-
-
-        <!-- =====================================
-             TUESDAY 15/9
-             ===================================== -->
-
-        <!-- =====================================
-             WEDNESDAY 16/9
-             ===================================== -->
-
-
-
-        <!-- =====================================
-             THURSDAY 17/9
-             ===================================== -->
-
-        
-
-
-        <!-- =====================================
-             FRIDAY 18/9
-             ===================================== -->
-
-        
-
-         <!-- =====================================
-             SATURDAY 19/9
-             ===================================== -->
-
-       
-
-        <!-- =====================================
-             SUNDAY 13/9
-             ===================================== -->
-
-        <div class="event sunday-event">
-        
-        <div class="league">
-
-                SCOTTISH LEAGUE CUP
-
-            </div>
-
-
-            <div class="match">
-
-
-                <div class="match-row">
-
-                    <div class="home-team">
-                        RANGERS
-                    </div>
-
-                    <div class="vs">
-                        VS
-                    </div>
-
-                    <div class="away-team">
-                        CELTIC
-                    </div>
-
-                    <span class="live-badge">
-                        LIVE
-                    </span>
-
-                    <span class="time">
-                        14:00
-                    </span>
-
-                </div>
-        </div>
-
-</div>
-
-        <div class="event sunday-event">
-
-            <div class="league">
-
-                Premier League
-
-            </div>
-
-
-            <div class="match">
-
-
-                <div class="match-row">
-
-                    <div class="home-team">
-                        COVENTRY
-                    </div>
-
-                    <div class="vs">
-                        VS
-                    </div>
-
-                    <div class="away-team">
-                        BRIGHTON
-                    </div>
-
-                    <span class="live-badge">
-                        LIVE
-                    </span>
-
-                    <span class="time">
-                        16:00
-                    </span>
-
-                </div>
-
-
-
-                <div class="match-row">
-
-                    <div class="home-team">
-                        MAN.UTD
-                    </div>
-
-                    <div class="vs">
-                        VS
-                    </div>
-
-                    <div class="away-team">
-                        MAN.CITY
-                    </div>
-
-                    <span class="live-badge">
-                        LIVE
-                    </span>
-
-                    <span class="time">
-                        18:30
-                    </span>
-
-                </div>
-
-                </div>
-    
-        </div>
-    
-     </div>
-            
-
-    <!-- =====================================
-         NO EVENTS MESSAGE
-         ===================================== -->
-
-    <div
-        id="noEventsMessage"
-        class="no-events"
-    >
-
-        <strong>
-            No matches added
-        </strong>
-
-        for this day yet.
-
-    </div>
-
-
-
-    <!-- =====================================
-         BACK BUTTON
-         ===================================== -->
 
     <button
-        class="back-button"
-        onclick="goBack()"
-    >
+    id="languageBackButton"
+    class="back"
+    onclick="goBackToLanguage()">
 
-        ← Back to Days
+
+        ← Language
+
 
     </button>
 
 
 </div>
 
+
+
+
+<!-- =========================
+CATEGORY MENU
+========================= -->
+
+
+<div id="categoryMenu" class="hidden">
+
+
+    <h1>
+
+
+        <img
+        src="https://i.ibb.co/MDTvBjw5/Napastar-logo.png"
+        alt="Napa Star Inn Logo"
+        class="logo">
+
+
+    </h1>
+
+
+
+
+    <div
+    id="originalFoodButtons"
+    class="menu">
+    </div>
+
+
+
+
+    <div
+    id="drinkCategoryButtons"
+    class="menu hidden">
+    </div>
+
+
+
+
+    <button
+    id="categoryBackButton"
+    class="back"
+    onclick="goBackFromCategories()">
+
+
+        ← Back
+
+
+    </button>
+
+
 </div>
+
+
+
+
+
+
+<!-- =========================
+FOOD / DRINK ITEMS
+========================= -->
+
+
+<div id="foodMenu" class="hidden">
+
+
+    <h1 id="selectedCategory"></h1>
+
+
+
+
+    <p
+    id="categoryNote"
+    class="category-note">
+    </p>
+
+
+
+
+    <div
+    id="foodButtons"
+    class="food-grid">
+    </div>
+
+
+
+
+    <button
+    id="itemBackButton"
+    class="back"
+    onclick="goBackToCategories()">
+
+
+        ← Back
+
+
+    </button>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
 
 
 
 <script>
 
 
-function showDay(day) {
+
+
+// =====================================================
+// GENERAL SETTINGS
+// =====================================================
+
+
+let currentLanguage = "en";
+
+
+let currentMenuType = "food";
+
+
+let currentDrinkCategory = null;
+
+
+
+
+
+
+// =====================================================
+// ENGLISH FOOD MENU
+// =====================================================
+
+
+const foodMenu = {
+
+
+
+
+"Starter": [
+
+
+{
+name: "Smoked BBQ Buffalo Wings — €7.00",
+description: "Smoked chicken wings with BBQ sauce."
+},
+
+
+{
+name: "Mozzarella Fingers — €7.00",
+description: "Breaded mozzarella fingers served with taco salsa dip sauce."
+},
+
+
+{
+name: "Spring Rolls — €7.00",
+description: "Crispy vegetable rolls served with sweet and sour sauce."
+},
+
+
+{
+name: "Buttered Onion Rings — €7.00",
+description: "Crispy onion rings served with honey mustard sauce."
+},
+
+
+{
+name: "Garlic Bread — €4.00",
+description: "Sliced French baguette topped with garlic butter, parsley and oregano."
+},
+
+
+{
+name: "Garlic Bread with Cheese — €4.50",
+description: "Sliced French baguette with garlic butter, parsley and oregano, topped with mozzarella cheese."
+},
+
+
+{
+name: "Grilled Halloumi Tzatziki — €10.00",
+description: "Grilled halloumi cheese served with tzatziki and pita bread."
+},
+
+
+{
+name: "Chips / French Fries — €4.50",
+description: ""
+}
+
+
+],
+
+
+
+
+
+
+"Platters": [
+
+
+{
+name: "Combo Platter — €20.00",
+description: "Chicken wings, spring rolls, chicken nuggets, mozzarella fingers and French fries. Served with pitta bread and dips."
+},
+
+
+{
+name: "Mexican Nachos Platter — €14.00",
+description: "Mexican nachos with melted cheese, served with sour cream, salsa and guacamole."
+}
+
+
+],
+
+
+
+
+
+
+"Salads": [
+
+
+{
+name: "Greek Salad — €10.00",
+description: "Tomato, cucumber, green pepper, onion, olives and feta cheese.",
+image: "https://i.ibb.co/MymNc7hg/DSC8947.jpg"
+},
+
+
+{
+name: "Caesar Chicken Salad — €14.00",
+description: "Grilled chicken, crispy bacon, croutons and cherry tomatoes, served with Caesar dressing."
+},
+
+
+{
+name: "Quinoa Chicken Avocado Salad — €16.00",
+description: "Quinoa, chicken, avocado, sweet corn, cucumber, onion, pepper and dressing.",
+image: "https://i.ibb.co/4RpKtZJs/DSC8953.jpg"
+},
+
+
+{
+name: "Orange Steak Salad — €17.00",
+description: "Fresh seasonal salad with sun-dried tomatoes, orange, walnuts, cherry tomatoes, rocket, honey mustard dressing and grilled beef strips."
+}
+
+
+],
+
+
+
+
+
+
+"Sandwiches": [
+
+
+{
+name: "Clubhouse Sandwich — €13.00",
+description: "Triple toast with chicken, egg, cheese, bacon, lettuce, tomato and mayonnaise. Served with French fries.",
+image: "https://i.ibb.co/v6SfqgBm/DSC8962.jpg"
+},
+
+
+{
+name: "Chicken Wrap — €12.00",
+description: "Marinated chicken strips wrapped in a Mexican tortilla with Edam cheese and lettuce. Served with French fries and coleslaw salad.",
+image: "https://i.ibb.co/2Y8C55G8/DSC8990.jpg"
+},
+
+
+{
+name: "Halloumi Cheese and Lountza Sandwich — €12.00",
+description: "Cyprus pitta sandwich with halloumi cheese and lountza. Served with French fries.",
+image: "https://i.ibb.co/v6VjVxBV/DSC8976.jpg"
+},
+
+
+{
+name: "Pork Baguette — €15.00",
+description: "Pork schnitzel with cream cheese, caramelized onions, tomato and lettuce. Served with French fries and coleslaw salad.",
+image: "https://i.ibb.co/qFLLFdb6/DSC8965.jpg"
+}
+
+
+],
+
+
+
+
+
+
+"Burgers": [
+
+
+{
+name: "House Burger (Beef and Pork) — €14.00",
+description: "Our homemade juicy burger with tomato and lettuce.",
+image: "https://i.ibb.co/N6XTWsHh/DSC9029.jpg"
+},
+
+
+{
+name: "Cheeseburger (Beef and Pork) — €15.00",
+description: "Homemade juicy burger with cheddar cheese, tomato and lettuce."
+},
+
+
+{
+name: "Napastar's Real Burger (Beef and Pork) — €16.00",
+description: "Our special homemade burger with smoked bacon, cheddar cheese, tomato, caramelized onions, lettuce and our special sauce.",
+image: "https://i.ibb.co/TBvJykSY/DSC9025.jpg"
+},
+
+
+{
+name: "Black Angus Burger — €18.00",
+description: "Black Angus beef burger with smoked bacon, pickles, tomato, lettuce and Jack Daniel's sauce.",
+image: "https://i.ibb.co/PpQptvp/DSC8981.jpg"
+},
+
+
+{
+name: "Fried Chicken Burger — €14.00",
+description: "Fried chicken burger with tomato and lettuce."
+},
+
+
+{
+name: "Veggie Burger — €13.00",
+description: "Vegetarian burger with lettuce and tomato.",
+image: "https://i.ibb.co/Sw0145h3/DSC9033.jpg"
+}
+
+
+],
+
+
+
+
+
+
+"Pizza": [
+
+
+{
+name: "Margarita Pizza — €10.00",
+description: "Pizza with tomato sauce, mozzarella cheese and oregano."
+},
+
+
+{
+name: "Pepperoni Pizza — €11.00",
+description: "Pizza with tomato sauce, mozzarella cheese and pepperoni."
+},
+
+
+{
+name: "Special Pizza — €12.00",
+description: "Pizza with tomato sauce, smoked bacon, ham, mushrooms, bell peppers, tomato and mozzarella cheese, topped with oregano."
+},
+
+
+{
+name: "Hawaiian Pizza — €11.00",
+description: "Pizza with tomato sauce, mozzarella cheese, ham and pineapple."
+}
+
+
+],
+
+
+
+
+
+
+"Main Dishes": [
+
+
+{
+name: "Grilled Pork Chop Jumbo — €18.00",
+description: "Fresh juicy pork chop seasoned with herbs and served with French fries and tzatziki.",
+image: "https://i.ibb.co/7xDhn4qn/DSC9001.jpg"
+},
+
+
+{
+name: "Angus Sirloin Steak — €26.00",
+description: "Grilled sirloin steak served with French fries, rice and oven-baked vegetables. Choice of sauce."
+},
+
+
+{
+name: "Chicken A La Creme — €18.00",
+description: "Chicken fillet with cream, bacon, onion, mushrooms, green pepper and fresh basil. Served with rice and oven-baked vegetables."
+},
+
+
+{
+name: "Fresh BBQ Spare Ribs — €18.00",
+description: "Juicy baby back pork ribs coated with BBQ sauce. Served with French fries and BBQ sauce."
+},
+
+
+{
+name: "Pork Schnitzel — €16.00",
+description: "Pork schnitzel with chips and honey mustard sauce.",
+image: "https://i.ibb.co/FbyVB9bP/DSC9021.jpg"
+},
+
+
+{
+name: "Chicken Fillet — €16.00",
+description: "Fresh chicken fillet marinated with herbs, grilled and served with French fries and tzatziki.",
+image: "https://i.ibb.co/1Jrx67Lm/DSC9011.jpg"
+},
+
+
+{
+name: "Grilled Swordfish — €18.00",
+description: "Grilled swordfish served with chips, green salad and lemon dressing.",
+image: "https://i.ibb.co/Qj89H461/DSC8985.jpg"
+},
+
+
+{
+name: "Fish & Chips — €18.00",
+description: "Served with crispy chips and tartar sauce."
+}
+
+
+],
+
+
+
+
+
+
+"Pasta": [
+
+
+{
+name: "Spaghetti Bolognese — €14.00",
+description: "Spaghetti with pork minced meat, tomato sauce, chopped parsley and Parmesan cheese."
+},
+
+
+{
+name: "Italian Napolitan — €12.00",
+description: "Spaghetti pasta with Italian tomato sauce and chopped basil."
+},
+
+
+{
+name: "Carbonara — €14.00",
+description: "Spaghetti carbonara with bacon, mushrooms, onion and garlic, served with Parmesan cheese."
+},
+
+
+{
+name: "Seafood — €18.00",
+description: "Spaghetti with mixed seafood, cream, onion and garlic."
+}
+
+
+],
+
+
+
+
+
+
+"Kids Corner": [
+
+
+{
+name: "Spaghetti Bolognese — €9.00",
+description: "Spaghetti pasta with pork minced meat, tomato sauce, chopped parsley and Parmesan cheese."
+},
+
+
+{
+name: "Chicken Nuggets — €9.00",
+description: "Chicken nuggets served with French fries."
+},
+
+
+{
+name: "Fish Fingers — €9.00",
+description: "Fish fingers served with French fries."
+}
+
+
+],
+
+
+
+
+
+
+"Breakfast": [
+
+
+{
+name: "Napastar Breakfast — €10.00",
+description: "Eggs, bacon, ham, sausage, baked beans, toast, mushrooms and tomato.",
+image: "https://i.ibb.co/Y4HP08rM/DSC9038.jpg"
+},
+
+
+{
+name: "Napa Healthy Breakfast — €9.00",
+description: "Protein bread with homemade avocado spread, turkey, banana, tomato, cucumber and pomegranate.",
+image: "https://i.ibb.co/sJ33tv9y/DSC9019.jpg"
+},
+
+
+{
+name: "Avocado Fried Eggs Toast — €9.00",
+description: "Fried eggs served on two slices of black bread with avocado, radishes, onions, peppers and tomatoes.",
+image: "https://i.ibb.co/hFhSSB3B/att-m-MH7-Qm-z1vt-ucuq-NPINv2-X6t-Sy-Ce12-Af-UEeyo-Xz-NKQ.jpg"
+},
+
+
+{
+name: "Ham and Cheese Toast — €8.00",
+description: "Ham and cheese toast served with chips.",
+image: "https://i.ibb.co/gZj3LjKc/DSC8971.jpg"
+}
+
+
+],
+
+
+
+
+
+
+"Omelet": [
+
+
+{
+name: "Plain Omelet — €7.00",
+description: "Three eggs plain omelet with cucumber and tomato."
+},
+
+
+{
+name: "Healthy Omelet — €10.00",
+description: "Three eggs omelet stuffed with turkey, cheese, avocado, egg white, honey and brown bread with homemade peanut butter.",
+image: "https://i.ibb.co/N230sprP/DSC9015.jpg"
+},
+
+
+{
+name: "Special Omelet — €10.00",
+description: "Three eggs omelet with ham, bacon, mushrooms, cheese and chips."
+}
+
+
+],
+
+
+
+
+
+
+"Desserts": [
+
+
+{
+name: "Lava Cake — €8.00",
+description: "Served with chocolate topping and vanilla ice cream."
+},
+
+
+{
+name: "Orange Pie — €8.00",
+description: "Served with vanilla ice cream.",
+image: "https://i.ibb.co/0PSbsBd/DSC9047.jpg"
+},
+
+
+{
+name: "Apple Pie — €8.00",
+description: "Served with whipped cream, cinnamon and vanilla ice cream."
+},
+
+
+{
+name: "Baklavas — €8.00",
+description: "Served with vanilla ice cream.",
+image: "https://i.ibb.co/fY6Y03Cj/DSC9044.jpg"
+},
+
+
+{
+name: "Selection of Ice Cream — €3.00 per scoop",
+description: "Chocolate, vanilla and strawberry."
+}
+
+
+]
+
+
+};
+
+
+
+
+
+
+// =====================================================
+// GREEK FOOD MENU
+// =====================================================
+
+
+const foodMenuGreek = {
+
+
+
+
+"Starter": [
+
+
+{
+name: "Smoked BBQ Buffalo Wings — €7.00",
+description: "Καπνιστές φτερούγες κοτόπουλου με BBQ σάλτσα."
+},
+
+
+{
+name: "Mozzarella Fingers — €7.00",
+description: "Μοτσαρέλα στικ με τάκο σάλτσα ντιπ."
+},
+
+
+{
+name: "Spring Rolls — €7.00",
+description: "Τραγανά ρολάκια με λαχανικά σερβίρονται με γλυκόξινη σάλτσα."
+},
+
+
+{
+name: "Buttered Onion Rings — €7.00",
+description: "Τραγανές ροδέλες κρεμμυδιών με σάλτσα μουστάρδας με μέλι."
+},
+
+
+{
+name: "Garlic Bread — €4.00",
+description: "Γαλλική μπαγκέτα κομμένη σε φέτες με βούτυρο σκόρδου, μαϊντανό και ρίγανη."
+},
+
+
+{
+name: "Garlic Bread with Cheese — €4.50",
+description: "Γαλλική μπαγκέτα κομμένη σε φέτες με βούτυρο σκόρδου, μαϊντανό, ρίγανη και τυρί."
+},
+
+
+{
+name: "Grilled Halloumi Tzatziki — €10.00",
+description: "Χαλλούμι σχάρας, τζατζίκι και πίτα."
+},
+
+
+{
+name: "Πατάτες Τηγανητές — €4.50",
+description: ""
+}
+
+
+],
+
+
+
+
+
+
+"Platters": [
+
+
+{
+name: "Combo Platter — €20.00",
+description: "Φτερούγες κοτόπουλου, spring rolls, κοτομπουκιές, μοτσαρελάκια στικ και τηγανητές πατάτες. Σερβίρεται με πίτα και ντιπ."
+},
+
+
+{
+name: "Mexican Nachos Platter — €14.00",
+description: "Νάτσος με λιωμένο τυρί, γουακαμόλε, ξινόκρεμα και σάλσα."
+}
+
+
+],
+
+
+
+
+
+
+"Salads": [
+
+
+{
+name: "Greek Salad — €10.00",
+description: "Ντομάτα, αγγούρι, πράσινη πιπεριά, κρεμμύδι, ελιές, φέτα και ρίγανη.",
+image: "https://i.ibb.co/MymNc7hg/DSC8947.jpg"
+},
+
+
+{
+name: "Caesar Chicken Salad — €14.00",
+description: "Κοτόπουλο σχάρας, τραγανό μπέικον, κρουτόν, ντοματίνια, παρμεζάνα και ντρέσινγκ του Καίσαρα."
+},
+
+
+{
+name: "Quinoa Chicken Avocado Salad — €16.00",
+description: "Κινόα, κοτόπουλο, αβοκάντο, ντομάτα, αγγουράκι, κρεμμύδι, πιπεριά και ντρέσινγκ.",
+image: "https://i.ibb.co/4RpKtZJs/DSC8953.jpg"
+},
+
+
+{
+name: "Orange Steak Salad — €17.00",
+description: "Φρέσκο βοδινό φιλέτο, λιαστές ντομάτες, πορτοκάλι, καρύδια, ντοματίνια, ρόκα και σάλτσα μουστάρδας με μέλι."
+}
+
+
+],
+
+
+
+
+
+
+"Sandwiches": [
+
+
+{
+name: "Clubhouse Sandwich — €13.00",
+description: "Τριπλό τοστ με κοτόπουλο, αυγό, τυρί, μπέικον, μαρούλι, ντομάτα και μαγιονέζα. Σερβίρεται με πατάτες τηγανητές.",
+image: "https://i.ibb.co/v6SfqgBm/DSC8962.jpg"
+},
+
+
+{
+name: "Chicken Wrap — €12.00",
+description: "Μαριναρισμένες λωρίδες κοτόπουλου τυλιγμένες σε μεξικάνικη τορτίγια με τυρί Ένταμ και μαρούλι. Σερβίρεται με τηγανητές πατάτες και σαλάτα λάχανο.",
+image: "https://i.ibb.co/2Y8C55G8/DSC8990.jpg"
+},
+
+
+{
+name: "Halloumi Cheese & Lountza Sandwich — €12.00",
+description: "Χαλλούμι και λούντζα σε κυπριακή πίτα. Σερβίρεται με πατάτες τηγανητές.",
+image: "https://i.ibb.co/v6VjVxBV/DSC8976.jpg"
+},
+
+
+{
+name: "Pork Baguette — €15.00",
+description: "Μπαγκέτα με χοιρινό σνίτσελ, τυρί κρέμα, καραμελωμένα κρεμμύδια, ντομάτα και μαρούλι. Σερβίρεται με τηγανητές πατάτες και σαλάτα λάχανου.",
+image: "https://i.ibb.co/qFLLFdb6/DSC8965.jpg"
+}
+
+
+],
+
+
+
+
+
+
+"Burgers": [
+
+
+{
+name: "House Burger (Βοδινό και Χοιρινό) — €14.00",
+description: "Το σπιτικό μας ζουμερό μπιφτέκι με ντομάτα και μαρούλι.",
+image: "https://i.ibb.co/N6XTWsHh/DSC9029.jpg"
+},
+
+
+{
+name: "Cheeseburger (Βοδινό και Χοιρινό) — €15.00",
+description: "Το σπιτικό μας ζουμερό μπιφτέκι με τυρί τσένταρ, ντομάτα και μαρούλι."
+},
+
+
+{
+name: "Napastar's Real Burger — €16.00",
+description: "Το σπιτικό μας μπιφτέκι με καπνιστό μπέικον, τυρί τσένταρ, ντομάτα, καραμελωμένο κρεμμύδι, μαρούλι και την ειδική μας σάλτσα.",
+image: "https://i.ibb.co/TBvJykSY/DSC9025.jpg"
+},
+
+
+{
+name: "Black Angus Burger — €18.00",
+description: "Βοδινό μπιφτέκι Black Angus με καπνιστό μπέικον, τουρσί, ντομάτα, μαρούλι και σάλτσα Jack Daniel's.",
+image: "https://i.ibb.co/PpQptvp/DSC8981.jpg"
+},
+
+
+{
+name: "Fried Chicken Burger — €14.00",
+description: "Τηγανητό μπιφτέκι κοτόπουλου με ντομάτα και μαρούλι."
+},
+
+
+{
+name: "Veggie Burger — €13.00",
+description: "Χορτοφαγικό μπιφτέκι με μαρούλι και ντομάτα.",
+image: "https://i.ibb.co/Sw0145h3/DSC9033.jpg"
+}
+
+
+],
+
+
+
+
+
+
+"Pizza": [
+
+
+{
+name: "Margarita Pizza — €10.00",
+description: "Με σάλτσα ντομάτας, μοτσαρέλα και ρίγανη."
+},
+
+
+{
+name: "Pepperoni Pizza — €11.00",
+description: "Με σάλτσα ντομάτας, μοτσαρέλα και πεπερόνι."
+},
+
+
+{
+name: "Special Pizza — €12.00",
+description: "Με σάλτσα ντομάτας, καπνιστό μπέικον, ζαμπόν, μανιτάρια, πιπεριές, μοτσαρέλα και ρίγανη."
+},
+
+
+{
+name: "Hawaiian Pizza — €11.00",
+description: "Με σάλτσα ντομάτας, μοτσαρέλα, ζαμπόν και ανανά."
+}
+
+
+],
+
+
+
+
+
+
+"Main Dishes": [
+
+
+{
+name: "Grilled Pork Chop Jumbo — €18.00",
+description: "Ζουμερή χοιρινή μπριζόλα με καρυκεύματα στη σχάρα. Σερβίρεται με τηγανητές πατάτες και τζατζίκι.",
+image: "https://i.ibb.co/7xDhn4qn/DSC9001.jpg"
+},
+
+
+{
+name: "Angus Sirloin Steak — €26.00",
+description: "Βοδινό φιλέτο σερβίρεται με τηγανητές πατάτες, ρύζι και ψητά λαχανικά. Επιλογή σάλτσας."
+},
+
+
+{
+name: "Chicken A La Creme — €18.00",
+description: "Κοτόπουλο με φρέσκια κρέμα, κρεμμύδι, μανιτάρια, πιπεριά και φρέσκο βασιλικό. Σερβίρεται με ρύζι και ψητά λαχανικά."
+},
+
+
+{
+name: "Fresh BBQ Spare Ribs — €18.00",
+description: "Ζουμερά χοιρινά παϊδάκια με σάλτσα BBQ. Σερβίρονται με τηγανητές πατάτες και BBQ σάλτσα."
+},
+
+
+{
+name: "Pork Schnitzel — €16.00",
+description: "Χοιρινό σνίτσελ με τηγανητές πατάτες και σάλτσα μουστάρδας με μέλι.",
+image: "https://i.ibb.co/FbyVB9bP/DSC9021.jpg"
+},
+
+
+{
+name: "Chicken Fillet — €16.00",
+description: "Φρέσκο μαριναρισμένο φιλέτο κοτόπουλου στη σχάρα. Σερβίρεται με τηγανητές πατάτες και τζατζίκι.",
+image: "https://i.ibb.co/1Jrx67Lm/DSC9011.jpg"
+},
+
+
+{
+name: "Grilled Swordfish — €18.00",
+description: "Ξιφίας στη σχάρα με τηγανητές πατάτες, σαλάτα και ντρέσινγκ λεμονιού.",
+image: "https://i.ibb.co/Qj89H461/DSC8985.jpg"
+},
+
+
+{
+name: "Fish & Chips — €18.00",
+description: "Τηγανητό φιλέτο ψαριού σερβίρεται με πατάτες και σάλτσα ταρτάρ."
+}
+
+
+],
+
+
+
+
+
+
+"Pasta": [
+
+
+{
+name: "Spaghetti Bolognese — €14.00",
+description: "Μακαρόνια σπαγγέτι με χοιρινό κιμά, σάλτσα ντομάτας, μαϊντανό και παρμεζάνα."
+},
+
+
+{
+name: "Italian Napolitan — €12.00",
+description: "Ζυμαρικά με ιταλική σάλτσα ντομάτας και ψιλοκομμένο βασιλικό."
+},
+
+
+{
+name: "Carbonara — €14.00",
+description: "Σπαγγέτι καρμπονάρα με μπέικον, μανιτάρια, κρεμμύδι, σκόρδο και παρμεζάνα."
+},
+
+
+{
+name: "Seafood — €18.00",
+description: "Σπαγγέτι με διάφορα θαλασσινά, κρέμα, κρεμμύδι και σκόρδο."
+}
+
+
+],
+
+
+
+
+
+
+"Kids Corner": [
+
+
+{
+name: "Spaghetti Bolognese — €9.00",
+description: "Μακαρόνια σπαγγέτι με χοιρινό κιμά, σάλτσα ντομάτας, μαϊντανό και παρμεζάνα."
+},
+
+
+{
+name: "Chicken Nuggets — €9.00",
+description: "Κοτομπουκιές σερβίρονται με πατάτες τηγανητές."
+},
+
+
+{
+name: "Fish Fingers — €9.00",
+description: "Ψαρομπουκιές σερβίρονται με πατάτες τηγανητές."
+}
+
+
+],
+
+
+
+
+
+
+"Breakfast": [
+
+
+{
+name: "Napastar Breakfast — €10.00",
+description: "Αυγά, μπέικον, λουκάνικα, χαλλούμι, hash browns, λούντζα, φασόλια, ντομάτα και αγγουράκι. Συνοδεύεται με τοστ.",
+image: "https://i.ibb.co/Y4HP08rM/DSC9038.jpg"
+},
+
+
+{
+name: "Napa Healthy Breakfast — €9.00",
+description: "Πρωτεϊνούχο ψωμί με σπιτικό φυστικοβούτυρο, μπανάνα, γκρανόλα, φράουλες και μέλι.",
+image: "https://i.ibb.co/sJ33tv9y/DSC9019.jpg"
+},
+
+
+{
+name: "Avocado Fried Eggs Toast — €9.00",
+description: "Δύο τηγανητά αυγά σε δύο φέτες ψωμί με αβοκάντο, κρεμμύδι, πιπεριές και ντομάτες.",
+image: "https://i.ibb.co/hFhSSB3B/att-m-MH7-Qm-z1vt-ucuq-NPINv2-X6t-Sy-Ce12-Af-UEeyo-Xz-NKQ.jpg"
+},
+
+
+{
+name: "Ham and Cheese Toast — €8.00",
+description: "Τοστ ζαμπόν και τυρί. Σερβίρεται με πατάτες.",
+image: "https://i.ibb.co/gZj3LjKc/DSC8971.jpg"
+}
+
+
+],
+
+
+
+
+
+
+"Omelet": [
+
+
+{
+name: "Plain Omelet — €7.00",
+description: "Ομελέτα τριών αυγών με αγγούρι και ντομάτα."
+},
+
+
+{
+name: "Healthy Omelet — €10.00",
+description: "Ομελέτα τριών αυγών με γαλοπούλα, τυρί και αβοκάντο. Συνοδεύεται με μαύρο ψωμί και σπιτικό φυστικοβούτυρο.",
+image: "https://i.ibb.co/N230sprP/DSC9015.jpg"
+},
+
+
+{
+name: "Special Omelet — €10.00",
+description: "Ομελέτα τριών αυγών με ζαμπόν, μπέικον, μανιτάρια, τυρί και τηγανητές πατάτες."
+}
+
+
+],
+
+
+
+
+
+
+"Desserts": [
+
+
+{
+name: "Lava Cake — €8.00",
+description: "Σερβίρεται με σος σοκολάτας και παγωτό βανίλιας."
+},
+
+
+{
+name: "Πορτοκαλόπιτα — €8.00",
+description: "Σερβίρεται με παγωτό βανίλια.",
+image: "https://i.ibb.co/0PSbsBd/DSC9047.jpg"
+},
+
+
+{
+name: "Μηλόπιτα — €8.00",
+description: "Σερβίρεται με σαντιγί, κανέλα και παγωτό βανίλιας."
+},
+
+
+{
+name: "Μπακλαβάς — €8.00",
+description: "Σερβίρεται με παγωτό βανίλια.",
+image: "https://i.ibb.co/fY6Y03Cj/DSC9044.jpg"
+},
+
+
+{
+name: "Επιλογή Παγωτού — €3.00 ανά μπάλα",
+description: "Σοκολάτα, βανίλια και φράουλα."
+}
+
+
+]
+
+
+};
+
+
+
+
+
+
+// =====================================================
+// DRINK MENU
+// =====================================================
+
+
+const drinksMenu = {
+
+
+
+
+"Cocktails": [
+
+
+{
+name: "Classic Mojito",
+description: "Cuban light rum, fresh mint sprigs, sugar, fresh lime, lime cordial and soda water."
+},
+
+
+{
+name: "Sex on the Beach",
+description: "Vodka, peach schnapps, orange juice and grenadine."
+},
+
+
+{
+name: "Long Island Iced Tea",
+description: "Vodka, white rum, tequila, gin, Cointreau, cola and lemon squash."
+},
+
+
+{
+name: "Piña Colada",
+description: "White rum, coconut liqueur, pineapple juice and fresh cream."
+},
+
+
+{
+name: "Staraki",
+description: "Skinos mastic liqueur, lime, Sprite and blue curaçao."
+},
+
+
+{
+name: "Strawberry Daiquiri",
+description: "White rum, Cointreau, strawberry liqueur, fresh strawberries and lime cordial."
+},
+
+
+{
+name: "Rolls Royce",
+description: "Whisky, Baileys, Cointreau and Tia Maria."
+},
+
+
+{
+name: "Cosmopolitan",
+description: "Vodka, Cointreau, cranberry juice, lime cordial and orange twist."
+},
+
+
+{
+name: "Rainbow",
+description: "White rum, triple sec, banana liqueur, orange juice, grenadine and blue curaçao."
+},
+
+
+{
+name: "Aperol Spritz",
+description: "Aperol, Prosecco and soda water."
+},
+
+
+{
+name: "Doctor Cocktail",
+description: "Whisky, triple sec, lemon juice, lime and soda."
+},
+
+
+{
+name: "Strawberry Margarita",
+description: "Tequila, strawberry liqueur, Cointreau, lime cordial and lemon juice."
+},
+
+
+{
+name: "Black Russian",
+description: "Vodka, Kahlúa and cola."
+},
+
+
+{
+name: "Caipirinha",
+description: "Fresh lime, cachaça and soda."
+},
+
+
+{
+name: "Brandy Sour",
+description: "Brandy, lemon squash, Angostura bitters and soda water."
+},
+
+
+{
+name: "Ouzo Special",
+description: "Ouzo, lemon squash, lemonade and grenadine."
+},
+
+
+{
+name: "San Francisco",
+description: "Vodka, banana liqueur, orange juice and grenadine."
+},
+
+
+{
+name: "Alexander",
+description: "Brandy, coffee liqueur, fresh cream and cinnamon."
+},
+
+
+{
+name: "Mbella",
+description: "Aperol, Disaronno, fresh lime and Amarena cherry."
+},
+
+
+{
+name: "Negroni",
+description: "Sweet vermouth, Campari and gin."
+}
+
+
+],
+
+
+
+
+
+
+"Non-Alcoholic Cocktails": [
+
+
+{
+name: "Mickey Mouse",
+description: "A mix of fruit juices and grenadine."
+},
+
+
+{
+name: "Tropical Dream",
+description: "Kiwi syrup, lime cordial and lemonade."
+},
+
+
+{
+name: "Napa Sheriff",
+description: "Blackcurrant, pineapple juice and grapefruit juice."
+}
+
+
+],
+
+
+
+
+
+
+"Beers": {
+
+
+
+
+"Draught": [
+
+
+{
+name: "KEO",
+description: "Half pint — €4.00<br>Pint — €5.00"
+},
+
+
+{
+name: "Carlsberg",
+description: "Half pint — €4.00<br>Pint — €5.00"
+},
+
+
+{
+name: "LEON",
+description: "Half pint — €4.00<br>Pint — €5.00"
+},
+
+
+{
+name: "Stella Artois",
+description: "Half pint — €4.50<br>Pint — €6.00"
+},
+
+
+{
+name: "Guinness",
+description: "Half pint — €5.50<br>Pint — €7.00"
+},
+
+
+{
+name: "Strongbow",
+description: "Half pint — €4.50<br>Pint — €6.00"
+}
+
+
+],
+
+
+
+
+"Bottled": [
+
+
+{name: "Carlsberg", description: ""},
+
+
+{name: "KEO", description: ""},
+
+
+{name: "Kopparberg", description: ""},
+
+
+{name: "Heineken", description: ""},
+
+
+{name: "Budweiser", description: ""},
+
+
+{name: "Corona Extra", description: ""},
+
+
+{name: "John Smiths", description: ""},
+
+
+{name: "Magners", description: ""},
+
+
+{name: "Somersby", description: ""}
+
+
+]
+
+
+},
+
+
+
+
+
+
+"Soft Drinks": [
+
+
+{name: "Coca Cola", description: ""},
+
+
+{name: "Coca Cola Zero", description: ""},
+
+
+{name: "Sprite", description: ""},
+
+
+{name: "Sprite Zero", description: ""},
+
+
+{name: "Fanta", description: ""},
+
+
+{name: "Soda Water", description: ""},
+
+
+{name: "Tonic Water", description: ""},
+
+
+{name: "Bitter Lemon", description: ""}
+
+
+],
+
+
+
+
+
+
+"Juices": [
+
+
+{name: "Orange", description: ""},
+
+
+{name: "Apple", description: ""},
+
+
+{name: "Pineapple", description: ""},
+
+
+{name: "Grapefruit", description: ""},
+
+
+{name: "Cranberry", description: ""}
+
+
+],
+
+
+
+
+
+
+"Cold Beverages": [
+
+
+{
+name: "Ice Tea — €4.00",
+description: "Lemon or Peach"
+},
+
+
+{
+name: "Mineral Water — €2.50",
+description: ""
+},
+
+
+{
+name: "Sparkling Water — €4.00",
+description: ""
+},
+
+
+{
+name: "Energy Drink — €5.00",
+description: ""
+},
+
+
+{
+name: "Milkshake — €4.00",
+description: "Chocolate, Vanilla, Strawberry"
+}
+
+
+],
+
+
+
+
+
+
+"Cold Coffee": [
+
+
+{name: "Freddo Espresso — €4.00", description: ""},
+
+
+{name: "Freddo Cappuccino — €4.50", description: ""},
+
+
+{name: "Frappe — €3.50", description: ""},
+
+
+{name: "Frappe with Baileys — €7.00", description: ""},
+
+
+{name: "Frappe with Vanilla Ice Cream — €7.00", description: ""}
+
+
+],
+
+
+
+
+
+
+"Hot Beverages": [
+
+
+{name: "Instant Coffee — €4.00", description: ""},
+
+
+{name: "Filter Coffee — €4.50", description: ""},
+
+
+{name: "Espresso — €3.00", description: ""},
+
+
+{name: "Double Espresso — €5.00", description: ""},
+
+
+{name: "Cappuccino — €4.50", description: ""},
+
+
+{name: "Caffe Latte — €5.00", description: ""},
+
+
+{name: "Hot Chocolate — €5.00", description: ""},
+
+
+{name: "Tea — €4.00", description: ""},
+
+
+{
+name: "Irish Coffee — €7.00",
+description: "Jameson Irish whisky, filter coffee and whipped cream."
+},
+
+
+{
+name: "Calypso Coffee — €7.00",
+description: "Tia Maria, filter coffee and whipped cream."
+}
+
+
+],
+
+
+
+
+
+
+"Shots": [
+
+
+{
+name: "Blow Job — €5.00",
+description: "Vodka, Peach Schnapps and Fresh Cream."
+},
+
+
+{
+name: "B-52 — €5.00",
+description: "Tia Maria, Baileys and Cointreau."
+}
+
+
+],
+
+
+
+
+
+
+"Spirits": {
+
+
+
+
+"Whisky": [
+
+
+{name: "Famous Grouse — €6.00", description: ""},
+
+
+{name: "Red Label — €6.00", description: ""},
+
+
+{name: "Jack Daniels — €6.00", description: ""},
+
+
+{name: "Southern Comfort — €6.00", description: ""},
+
+
+{name: "Black Label — €7.00", description: ""},
+
+
+{name: "Jim Beam — €7.00", description: ""},
+
+
+{name: "Glenfiddich — €7.00", description: ""},
+
+
+{name: "Chivas — €7.00", description: ""}
+
+
+],
+
+
+
+
+"Vodka": [
+
+
+{name: "Absolut — €6.00", description: ""},
+
+
+{name: "Smirnoff Red — €6.00", description: ""},
+
+
+{name: "Stoli — €6.00", description: ""},
+
+
+{name: "Belvedere — €7.00", description: ""},
+
+
+{name: "Grey Goose — €7.00", description: ""}
+
+
+],
+
+
+
+
+"Gin": [
+
+
+{name: "Gordons — €6.00", description: ""},
+
+
+{name: "Bombay — €6.00", description: ""},
+
+
+{name: "Hendricks — €7.00", description: ""}
+
+
+],
+
+
+
+
+"Rum": [
+
+
+{name: "Bacardi — €6.00", description: ""},
+
+
+{name: "Captain Morgan — €6.00", description: ""}
+
+
+],
+
+
+
+
+"Tequila": [
+
+
+{
+name: "Jose Cuervo — €6.00",
+description: "Classic or Special"
+}
+
+
+],
+
+
+
+
+"Brandy": [
+
+
+{
+name: "Metaxa 5* — €6.00",
+description: ""
+}
+
+
+],
+
+
+
+
+"Cognacs": [
+
+
+{name: "Courvoisier VS — €7.00", description: ""},
+
+
+{name: "Remy Martin — €7.00", description: ""},
+
+
+{name: "Hennessy — €7.00", description: ""},
+
+
+{name: "Martell — €7.00", description: ""}
+
+
+]
+
+
+},
+
+
+
+
+
+
+"Liquers": [
+
+
+{name: "Baileys — €6.00", description: ""},
+
+
+{name: "Sambuca — €6.00", description: ""},
+
+
+{name: "Tia Maria — €6.00", description: ""},
+
+
+{name: "Kahlua — €6.00", description: ""},
+
+
+{name: "Frangelico — €6.00", description: ""},
+
+
+{name: "Amaretto Disaronno — €6.00", description: ""},
+
+
+{name: "Cointreau — €6.00", description: ""},
+
+
+{name: "Grand Marnier — €6.00", description: ""},
+
+
+{name: "Ursus — €6.00", description: ""}
+
+
+],
+
+
+
+
+
+
+"Wines": {
+
+
+
+
+"White": [
+
+
+{
+name: "Kalamos Agios Savvas — €16.00",
+description: "Bottle 750ml - Medium Sweet"
+},
+
+
+{
+name: "Kalamos Agios Savvas — €5.00",
+description: "Bottle 187ml - Medium Sweet"
+},
+
+
+{
+name: "Kalamos Xinisteri — €16.00",
+description: "Bottle 750ml - Dry"
+},
+
+
+{
+name: "Moschofilero — €22.00",
+description: "Bottle 750ml - Dry"
+},
+
+
+{
+name: "Moschofilero — €5.00",
+description: "Bottle 187ml - Dry"
+}
+
+
+],
+
+
+
+
+"Rosé": [
+
+
+{
+name: "Mateus — €15.00",
+description: "Bottle 750ml - Medium Sweet"
+},
+
+
+{
+name: "Mateus — €5.00",
+description: "Bottle 187ml - Medium Sweet"
+},
+
+
+{
+name: "Kalamos Demetra — €16.00",
+description: "Bottle 750ml - Dry"
+},
+
+
+{
+name: "Mateus — €5.00",
+description: "Bottle 187ml - Dry"
+}
+
+
+],
+
+
+
+
+"Red": [
+
+
+{
+name: "Kalamos Agios Savvas — €16.00",
+description: "Bottle 750ml - Medium Sweet"
+},
+
+
+{
+name: "Kalamos Agios Savvas — €5.00",
+description: "Bottle 187ml - Medium Sweet"
+},
+
+
+{
+name: "Kalamos — €16.00",
+description: "Bottle 750ml - Dry"
+},
+
+
+{
+name: "Agiorgitiko — €22.00",
+description: "Bottle 750ml - Dry"
+},
+
+
+{
+name: "Agiorgitiko — €5.00",
+description: "Bottle 187ml - Dry"
+}
+
+
+]
+
+
+},
+
+
+
+
+
+
+"Shisha": [
+
+
+{
+name: "Shisha — €20.00",
+description: "Please ask about the available flavours."
+}
+
+
+]
+
+
+};
+
+
+
+
+
+
+// =====================================================
+// FOOD CATEGORY TRANSLATIONS
+// =====================================================
+
+
+const foodCategoryTranslations = {
+
+
+"Starter": "Ορεκτικά",
+
+
+"Platters": "Πιατέλες",
+
+
+"Salads": "Σαλάτες",
+
+
+"Sandwiches": "Σάντουιτς",
+
+
+"Burgers": "Μπιφτέκια",
+
+
+"Pizza": "Πίτσα",
+
+
+"Main Dishes": "Κυρίως Πιάτα",
+
+
+"Pasta": "Ζυμαρικά",
+
+
+"Kids Corner": "Παιδικό Μενού",
+
+
+"Breakfast": "Πρωινό μέχρι τις 16:00",
+
+
+"Omelet": "Ομελέτες",
+
+
+"Desserts": "Επιδόρπια"
+
+
+};
+
+
+
+
+
+
+// =====================================================
+// DRINK CATEGORY TRANSLATIONS
+// =====================================================
+
+
+const drinkCategoryTranslations = {
+
+
+"Cocktails": "Κοκτέιλ",
+
+
+"Non-Alcoholic Cocktails": "Μη Αλκοολούχα Κοκτέιλ",
+
+
+"Beers": "Μπύρες",
+
+
+"Soft Drinks": "Αναψυκτικά",
+
+
+"Juices": "Χυμοί",
+
+
+"Cold Beverages": "Κρύα Ροφήματα",
+
+
+"Cold Coffee": "Κρύοι Καφέδες",
+
+
+"Hot Beverages": "Ζεστά Ροφήματα",
+
+
+"Shots": "Σφηνάκια",
+
+
+"Spirits": "Ποτά",
+
+
+"Liquers": "Λικέρ",
+
+
+"Wines": "Κρασιά",
+
+
+"Shisha": "Ναργιλές",
+
+
+"Draught": "Βαρελίσιες",
+
+
+"Bottled": "Μπουκάλια",
+
+
+"Whisky": "Ουίσκι",
+
+
+"Vodka": "Βότκα",
+
+
+"Gin": "Τζιν",
+
+
+"Rum": "Ρούμι",
+
+
+"Tequila": "Τεκίλα",
+
+
+"Brandy": "Μπράντι",
+
+
+"Cognacs": "Κονιάκ",
+
+
+"White": "Λευκά",
+
+
+"Rosé": "Ροζέ",
+
+
+"Red": "Κόκκινα"
+
+
+};
+
+
+
+
+
+
+// =====================================================
+// CATEGORY NOTES
+// =====================================================
+
+
+const categoryNotes = {
+
+
+"Cocktails":
+"All cocktails — €7.00",
+
+
+"Non-Alcoholic Cocktails":
+"All non-alcoholic cocktails — €5.00",
+
+
+"Bottled":
+"All bottles 330ml — €5.00",
+
+
+"Soft Drinks":
+"250ml — €3.00 | 500ml — €5.00",
+
+
+"Juices":
+"250ml — €3.00 | 500ml — €5.00",
+
+
+"Whisky":
+"MIXER + €1.00",
+
+
+"Vodka":
+"MIXER + €1.00",
+
+
+"Gin":
+"MIXER + €1.00",
+
+
+"Rum":
+"MIXER + €1.00",
+
+
+"Tequila":
+"MIXER + €1.00",
+
+
+"Brandy":
+"MIXER + €1.00",
+
+
+"Cognacs":
+"MIXER + €1.00",
+
+
+"Liquers":
+"MIXER + €1.00"
+
+
+};
+
+
+
+
+
+
+const categoryNotesGreek = {
+
+
+"Cocktails":
+"Όλα τα κοκτέιλ — €7.00",
+
+
+"Non-Alcoholic Cocktails":
+"Όλα τα μη αλκοολούχα κοκτέιλ — €5.00",
+
+
+"Bottled":
+"Όλα τα μπουκάλια 330ml — €5.00",
+
+
+"Soft Drinks":
+"250ml — €3.00 | 500ml — €5.00",
+
+
+"Juices":
+"250ml — €3.00 | 500ml — €5.00",
+
+
+"Whisky":
+"Αναμεικτικό + €1.00",
+
+
+"Vodka":
+"Αναμεικτικό + €1.00",
+
+
+"Gin":
+"Αναμεικτικό + €1.00",
+
+
+"Rum":
+"Αναμεικτικό + €1.00",
+
+
+"Tequila":
+"Αναμεικτικό + €1.00",
+
+
+"Brandy":
+"Αναμεικτικό + €1.00",
+
+
+"Cognacs":
+"Αναμεικτικό + €1.00",
+
+
+"Liquers":
+"Αναμεικτικό + €1.00"
+
+
+};
+
+
+
+
+
+
+// =====================================================
+// CHOOSE LANGUAGE
+// =====================================================
+
+
+function chooseLanguage(language) {
+
+
+    currentLanguage = language;
+
+
 
 
     document
-        .getElementById("daySelection")
-        .style.display = "none";
+    .getElementById("languageMenu")
+    .classList.add("hidden");
 
 
-    document
-        .getElementById("dayPage")
-        .style.display = "block";
 
 
     document
-        .getElementById("dayTitle")
-        .textContent =
-            day.toUpperCase();
+    .getElementById("mainMenu")
+    .classList.remove("hidden");
 
 
 
-    const allEvents =
-        document.querySelectorAll(".event");
+
+    if (language === "gr") {
 
 
-    allEvents.forEach(
-        function(event) {
-
-            event.style.display =
-                "none";
-
-        }
-    );
+        document.documentElement.lang = "el";
 
 
 
-    const selectedEvents =
-        document.querySelectorAll(
-            "." +
-            day.toLowerCase() +
-            "-event"
-        );
 
-
-    selectedEvents.forEach(
-        function(event) {
-
-            event.style.display =
-                "block";
-
-        }
-    );
+        document
+        .getElementById("foodMainButton")
+        .textContent = "Φαγητό";
 
 
 
-    const noEventsMessage =
-        document.getElementById(
-            "noEventsMessage"
-        );
 
-
-    noEventsMessage.style.display =
-        selectedEvents.length === 0
-            ? "block"
-            : "none";
+        document
+        .getElementById("drinksMainButton")
+        .textContent = "Ποτά";
 
 
 
-    window.scrollTo({
 
-        top: 0,
+        document
+        .getElementById("sportsMainButton")
+        .textContent = "Ζωντανό Αθλητικό Πρόγραμμα";
 
-        behavior: "smooth"
 
-    });
+
+
+        document
+        .getElementById("locationMainButton")
+        .textContent = "Τοποθεσία";
+
+
+
+
+        document
+        .getElementById("contactMainButton")
+        .textContent = "Επικοινωνία";
+
+
+
+
+        document
+        .getElementById("contactPoint1")
+        .innerHTML = 'ΤΗΛ: +357 99639991<br><span style="margin-left: 38px;">+357 99684756</span>';
+
+
+
+
+        document
+        .getElementById("contactPoint2")
+        .textContent = "Instagram: @napa_star_inn";
+
+
+
+
+        document
+        .getElementById("contactPoint3")
+        .textContent = "Facebook: NAPA STAR INN";
+
+
+
+
+        document
+        .getElementById("languageBackButton")
+        .textContent = "← Γλώσσα";
+
+
+
+
+        document
+        .getElementById("categoryBackButton")
+        .textContent = "← Πίσω";
+
+
+
+
+        document
+        .getElementById("itemBackButton")
+        .textContent = "← Πίσω";
+
+
+
+
+
+
+    }
+
+
+    else {
+
+
+        document.documentElement.lang = "en";
+
+
+
+
+        document
+        .getElementById("foodMainButton")
+        .textContent = "Food";
+
+
+
+
+        document
+        .getElementById("drinksMainButton")
+        .textContent = "Drinks";
+
+
+
+
+        document
+        .getElementById("sportsMainButton")
+        .textContent = "Live Sports Schedule";
+
+
+
+
+        document
+        .getElementById("locationMainButton")
+        .textContent = "Location";
+
+
+
+
+        document
+        .getElementById("contactMainButton")
+        .textContent = "Contact Us";
+
+
+
+
+        document
+        .getElementById("contactPoint1")
+        .innerHTML = 'TEL: +357 99639991<br><span style="margin-left: 38px;">+357 99684756</span>';
+
+
+
+
+        document
+        .getElementById("contactPoint2")
+        .textContent = "Instagram: @napa_star_inn";
+
+
+
+
+        document
+        .getElementById("contactPoint3")
+        .textContent = "Facebook: NAPA STAR INN";
+
+
+
+
+        document
+        .getElementById("languageBackButton")
+        .textContent = "← Language";
+
+
+
+
+        document
+        .getElementById("categoryBackButton")
+        .textContent = "← Back";
+
+
+
+
+        document
+        .getElementById("itemBackButton")
+        .textContent = "← Back";
+
+
+
+
+
+
+    }
+
 
 }
 
 
 
-function goBack() {
+
+
+
+// =====================================================
+// BACK TO LANGUAGE SCREEN
+// =====================================================
+
+
+function goBackToLanguage() {
 
 
     document
-        .getElementById("dayPage")
-        .style.display =
-            "none";
+    .getElementById("mainMenu")
+    .classList.add("hidden");
+
+
 
 
     document
-        .getElementById("daySelection")
-        .style.display =
-            "block";
+    .getElementById("categoryMenu")
+    .classList.add("hidden");
+
+
 
 
     document
-        .getElementById("noEventsMessage")
-        .style.display =
-            "none";
+    .getElementById("foodMenu")
+    .classList.add("hidden");
 
 
-    window.scrollTo({
 
-        top: 0,
 
-        behavior: "smooth"
+    document
+    .getElementById("contactDropdown")
+    .classList.add("hidden");
+
+
+
+
+    document
+    .getElementById("languageMenu")
+    .classList.remove("hidden");
+
+
+}
+
+
+
+
+
+
+// =====================================================
+// CONTACT DROP-DOWN
+// =====================================================
+
+
+function toggleContactList() {
+
+
+    const contactDropdown =
+    document.getElementById("contactDropdown");
+
+
+
+
+    contactDropdown.classList.toggle("hidden");
+
+
+}
+
+
+
+
+
+
+// =====================================================
+// SHOW FOOD OR DRINK CATEGORIES
+// =====================================================
+
+
+function showCategories(type) {
+
+
+    currentMenuType = type;
+
+
+    currentDrinkCategory = null;
+
+
+
+
+    document
+    .getElementById("mainMenu")
+    .classList.add("hidden");
+
+
+
+
+    document
+    .getElementById("categoryMenu")
+    .classList.remove("hidden");
+
+
+
+
+    const foodButtons =
+    document.getElementById("originalFoodButtons");
+
+
+
+
+    const drinkButtons =
+    document.getElementById("drinkCategoryButtons");
+
+
+
+
+    foodButtons.classList.toggle(
+        "hidden",
+        type !== "food"
+    );
+
+
+
+
+    drinkButtons.classList.toggle(
+        "hidden",
+        type !== "drinks"
+    );
+
+
+
+
+    if (type === "food") {
+
+
+        createFoodCategoryButtons();
+
+
+    }
+
+
+
+
+    if (type === "drinks") {
+
+
+        createDrinkCategoryButtons(drinksMenu);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+// =====================================================
+// CREATE FOOD CATEGORY BUTTONS
+// =====================================================
+
+
+function createFoodCategoryButtons() {
+
+
+    const foodButtons =
+    document.getElementById("originalFoodButtons");
+
+
+
+
+    foodButtons.innerHTML = "";
+
+
+
+
+    Object.keys(foodMenu).forEach(category => {
+
+
+
+
+        const button =
+        document.createElement("button");
+
+
+
+
+        if (currentLanguage === "gr") {
+
+
+            button.textContent =
+            foodCategoryTranslations[category] || category;
+
+
+        }
+
+
+        else {
+
+
+            if (category === "Breakfast") {
+
+
+                button.textContent =
+                "Breakfast until 16:00";
+
+
+            }
+
+
+            else {
+
+
+                button.textContent =
+                category;
+
+
+            }
+
+
+        }
+
+
+
+
+        button.onclick =
+        () => selectCategory(category);
+
+
+
+
+        foodButtons.appendChild(button);
+
 
     });
 
+
 }
+
+
+
+
+
+
+// =====================================================
+// CREATE DRINK CATEGORY BUTTONS
+// =====================================================
+
+
+function createDrinkCategoryButtons(categories) {
+
+
+    const drinkButtons =
+    document.getElementById("drinkCategoryButtons");
+
+
+
+
+    drinkButtons.innerHTML = "";
+
+
+
+
+    Object.keys(categories).forEach(category => {
+
+
+
+
+        const button =
+        document.createElement("button");
+
+
+
+
+        if (currentLanguage === "gr") {
+
+
+            button.textContent =
+            drinkCategoryTranslations[category] || category;
+
+
+        }
+
+
+        else {
+
+
+            button.textContent = category;
+
+
+        }
+
+
+
+
+        button.onclick =
+        () => selectCategory(category);
+
+
+
+
+        drinkButtons.appendChild(button);
+
+
+    });
+
+
+}
+
+
+
+
+
+
+// =====================================================
+// SELECT CATEGORY
+// =====================================================
+
+
+function selectCategory(category) {
+
+
+
+
+    /*
+    If the visitor clicks:
+    Beers
+    Spirits
+    Wines
+
+
+    show another category level first.
+    */
+
+
+    if (
+        currentMenuType === "drinks" &&
+        currentDrinkCategory === null &&
+        !Array.isArray(drinksMenu[category])
+    ) {
+
+
+        currentDrinkCategory = category;
+
+
+
+
+        createDrinkCategoryButtons(
+            drinksMenu[category]
+        );
+
+
+
+
+        return;
+
+
+    }
+
+
+
+
+    document
+    .getElementById("categoryMenu")
+    .classList.add("hidden");
+
+
+
+
+    document
+    .getElementById("foodMenu")
+    .classList.remove("hidden");
+
+
+
+
+    let displayedCategory = category;
+
+
+
+
+    if (currentLanguage === "gr") {
+
+
+        if (currentMenuType === "food") {
+
+
+            displayedCategory =
+            foodCategoryTranslations[category] || category;
+
+
+        }
+
+
+        else {
+
+
+            displayedCategory =
+            drinkCategoryTranslations[category] || category;
+
+
+        }
+
+
+    }
+
+
+
+
+    document
+    .getElementById("selectedCategory")
+    .textContent = displayedCategory;
+
+
+
+
+
+
+    const note =
+    currentLanguage === "gr"
+    ? categoryNotesGreek[category]
+    : categoryNotes[category];
+
+
+
+
+    document
+    .getElementById("categoryNote")
+    .textContent = note || "";
+
+
+
+
+    createFoodItems(category);
+
+
+}
+
+
+
+
+
+
+// =====================================================
+// CREATE FOOD / DRINK CARDS
+// =====================================================
+
+
+function createFoodItems(category) {
+
+
+
+
+    const container =
+    document.getElementById("foodButtons");
+
+
+
+
+    container.innerHTML = "";
+
+
+
+
+    container.className =
+    currentMenuType === "food"
+    ? "food-grid food-one-column"
+    : "food-grid drinks-one-column";
+
+
+
+
+    let selectedItems;
+
+
+
+
+
+
+    if (currentMenuType === "food") {
+
+
+
+
+        if (currentLanguage === "gr") {
+
+
+            selectedItems =
+            foodMenuGreek[category];
+
+
+        }
+
+
+        else {
+
+
+            selectedItems =
+            foodMenu[category];
+
+
+        }
+
+
+    }
+
+
+
+
+    else {
+
+
+
+
+        if (currentDrinkCategory === null) {
+
+
+            selectedItems =
+            drinksMenu[category];
+
+
+        }
+
+
+        else {
+
+
+            selectedItems =
+            drinksMenu[currentDrinkCategory][category];
+
+
+        }
+
+
+    }
+
+
+
+
+
+
+    if (!selectedItems) {
+
+
+        container.innerHTML =
+        "<p>Menu items could not be loaded.</p>";
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+    selectedItems.forEach(food => {
+
+
+
+
+        const item =
+        document.createElement("div");
+
+
+
+
+        item.className =
+        "food-item";
+
+
+
+
+        const imageHtml =
+        food.image
+        ? `
+
+
+        <img
+        class="food-image"
+        src="${food.image}"
+        alt="${food.name}">
+
+
+        `
+        : "";
+
+
+
+
+        item.innerHTML = `
+
+
+        ${imageHtml}
+
+
+        <div class="food-name">
+
+
+            ${food.name}
+
+
+        </div>
+
+
+
+
+        <div class="food-description">
+
+
+            ${food.description}
+
+
+        </div>
+
+
+        `;
+
+
+
+
+        container.appendChild(item);
+
+
+    });
+
+
+}
+
+
+
+
+
+
+// =====================================================
+// BACK FROM ITEM SCREEN
+// =====================================================
+
+
+function goBackToCategories() {
+
+
+
+
+    document
+    .getElementById("foodMenu")
+    .classList.add("hidden");
+
+
+
+
+    document
+    .getElementById("categoryMenu")
+    .classList.remove("hidden");
+
+
+}
+
+
+
+
+
+
+// =====================================================
+// BACK FROM CATEGORY SCREEN
+// =====================================================
+
+
+function goBackFromCategories() {
+
+
+
+
+    /*
+    If inside Beers / Spirits / Wines,
+    return to the main Drinks categories.
+    */
+
+
+    if (
+        currentMenuType === "drinks" &&
+        currentDrinkCategory !== null
+    ) {
+
+
+
+
+        currentDrinkCategory = null;
+
+
+
+
+        createDrinkCategoryButtons(drinksMenu);
+
+
+
+
+        return;
+
+
+    }
+
+
+
+
+    document
+    .getElementById("categoryMenu")
+    .classList.add("hidden");
+
+
+
+
+    document
+    .getElementById("mainMenu")
+    .classList.remove("hidden");
+
+
+}
+
+
 
 
 </script>
 
+
+
+
 </body>
+
+
 </html>
