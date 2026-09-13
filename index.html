@@ -179,6 +179,99 @@ button:hover {
 
 
 /* =========================
+LINK BUTTONS
+========================= */
+
+.link-button {
+
+    display: block;
+
+    padding: 15px;
+
+    font-size: 20px;
+
+    font-family: "Roboto Condensed", sans-serif;
+
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #5C4033;
+
+    color: #F2F2F2;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.link-button:hover {
+
+    background: #F2C14E;
+
+    color: #2C1B14;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+
+}
+
+
+/* =========================
+CONTACT DROP-DOWN
+========================= */
+
+.contact-dropdown {
+
+    margin-top: 10px;
+
+    padding: 14px 16px;
+
+    background: #5C4033;
+
+    color: #F2F2F2;
+
+    border-radius: 10px;
+
+    text-align: left;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.16);
+
+}
+
+
+.contact-dropdown ul {
+
+    margin: 0;
+
+    padding-left: 22px;
+
+}
+
+
+.contact-dropdown li {
+
+    margin: 8px 0;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================
 BACK BUTTON
 ========================= */
 
@@ -381,6 +474,13 @@ MOBILE
     }
 
 
+    .link-button {
+
+        font-size: 18px;
+
+    }
+
+
     .food-name {
 
         font-size: 18px;
@@ -484,6 +584,75 @@ FOOD / DRINKS
 
         </button>
 
+
+        <!--
+        Replace the URL below with your LIVE SPORTS website link.
+        Example:
+        href="https://example.com/live-sports"
+        -->
+        <a
+        id="sportsMainButton"
+        class="link-button"
+        href="https://andreoug4-png.github.io/napastar-livesports-schedule/"
+        target="_top">
+
+            Live Sports Schedule
+
+        </a>
+
+
+        <!--
+        Replace the URL below with your Google Maps location link.
+        Example:
+        href="https://maps.app.goo.gl/..."
+        -->
+        <a
+        id="locationMainButton"
+        class="link-button"
+        href="https://maps.app.goo.gl/Uk5jcxYPvo5Xx8VYA"
+        target="_top">
+
+            Location
+
+        </a>
+
+
+        <button
+        id="contactMainButton"
+        onclick="toggleContactList()">
+
+            Contact Us
+
+        </button>
+
+
+        <!--
+        CONTACT US SMALL LIST
+        Replace the three placeholder points below later
+        with your own contact details.
+        -->
+        <div
+        id="contactDropdown"
+        class="contact-dropdown hidden">
+
+            <ul>
+
+                <li id="contactPoint1">
+                    TEL: +357 99639991, +357 99684756
+                </li>
+
+                <li id="contactPoint2">
+                    Instagram: @napa_star_inn
+                </li>
+
+                <li id="contactPoint3">
+                    Facebook: NAPA STAR INN
+                </li>
+
+            </ul>
+
+        </div>
+
     </div>
 
 
@@ -497,7 +666,6 @@ FOOD / DRINKS
     </button>
 
 </div>
-
 
 
 <!-- =========================
@@ -2124,6 +2292,36 @@ function chooseLanguage(language) {
 
 
         document
+        .getElementById("sportsMainButton")
+        .textContent = "Ζωντανό Αθλητικό Πρόγραμμα";
+
+
+        document
+        .getElementById("locationMainButton")
+        .textContent = "Τοποθεσία";
+
+
+        document
+        .getElementById("contactMainButton")
+        .textContent = "Επικοινωνία";
+
+
+        document
+        .getElementById("contactPoint1")
+        .textContent = "ΤΗΛ: +357 99639991, +357 99684756";
+
+
+        document
+        .getElementById("contactPoint2")
+        .textContent = "Instagram: @napa_star_inn";
+
+
+        document
+        .getElementById("contactPoint3")
+        .textContent = "Facebook: NAPA STAR INN";
+
+
+        document
         .getElementById("languageBackButton")
         .textContent = "← Γλώσσα";
 
@@ -2136,6 +2334,8 @@ function chooseLanguage(language) {
         document
         .getElementById("itemBackButton")
         .textContent = "← Πίσω";
+
+
 
     }
 
@@ -2155,6 +2355,36 @@ function chooseLanguage(language) {
 
 
         document
+        .getElementById("sportsMainButton")
+        .textContent = "Live Sports Schedule";
+
+
+        document
+        .getElementById("locationMainButton")
+        .textContent = "Location";
+
+
+        document
+        .getElementById("contactMainButton")
+        .textContent = "Contact Us";
+
+
+        document
+        .getElementById("contactPoint1")
+        .textContent = "TEL: +357 99639991, +357 99684756";
+
+
+        document
+        .getElementById("contactPoint2")
+        .textContent = "Instagram: @napa_star_inn";
+
+
+        document
+        .getElementById("contactPoint3")
+        .textContent = "Facebook: NAPA STAR INN";
+
+
+        document
         .getElementById("languageBackButton")
         .textContent = "← Language";
 
@@ -2167,6 +2397,8 @@ function chooseLanguage(language) {
         document
         .getElementById("itemBackButton")
         .textContent = "← Back";
+
+
 
     }
 
@@ -2196,8 +2428,29 @@ function goBackToLanguage() {
 
 
     document
+    .getElementById("contactDropdown")
+    .classList.add("hidden");
+
+
+    document
     .getElementById("languageMenu")
     .classList.remove("hidden");
+
+}
+
+
+
+// =====================================================
+// CONTACT DROP-DOWN
+// =====================================================
+
+function toggleContactList() {
+
+    const contactDropdown =
+    document.getElementById("contactDropdown");
+
+
+    contactDropdown.classList.toggle("hidden");
 
 }
 
